@@ -163,13 +163,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['passport_file']  = 'assets/passportfile/'.$passportfile;
 			$data['original_certificates']  = 'assets/originalcertificates/'.$originalcertificates;
 			$data['photos_childs']  = 'assets/photoschilds/'.$photoschilds;
-			
-			if($this->Admin_model->insert_admission($data))
+			$result = $this->Admin_model->insert_admission($data);
+			if($result == 'true')
 			{
 				$this->load->helper('url');
+				$this->session->set_flashdata('message','Student Admission Successfully Completed ');
 				redirect('admin/admission');
 			} else {
-			$this->load->helper('url');
+			    $this->load->helper('url');
 				redirect('admin/admission');
 			}
 	     }
@@ -223,16 +224,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$this->Admin_model->admission_status($id,$value);
-		$this->load->helper('url');
-		redirect('admin/admission');
+		$result = $this->Admin_model->admission_status($id,$value);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Student Admission Status Successfully Updated ');
+			redirect('admin/admission');
+		} else {
+			$this->load->helper('url');
+			redirect('admin/admission');
+		}
+		
 	}
 	
 	function delete_admission($id)
 	{
-	  $this->Admin_model->delete_admission($id);
-	  $this->load->helper('url');
-	  redirect('admin/admission');
+		$sess_data = $this->session->all_userdata();
+		if($sess_data['user_id'] == '' ){redirect('login/login');}
+	    $result = $this->Admin_model->delete_admission($id);
+	    if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Student Admission Successfully Deleted ');
+			redirect('admin/admission');
+		} else {
+			$this->load->helper('url');
+			redirect('admin/admission');
+		}
+	  
 	}
 	
 	public function view_details($id)
@@ -387,10 +406,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$data['last_school_name_ar']=$gt->translate("en","ar",$this->input->post('last_school_name'));
 		$data['mode_of_transportation_ar']=$gt->translate("en","ar",$this->input->post('mode_of_transportation'));
 		
-		$this->Admin_model->update_admission($id,$data);
-	  
+		$result = $this->Admin_model->update_admission($id,$data);
+		if($result == 'true')
+		{
+		$this->load->helper('url');
+		$this->session->set_flashdata('message','Student Admission Successfully Updated');
+		redirect('admin/admission');
+		} else {
+		$this->load->helper('url');
+		redirect('admin/admission');
+		}
       
-      redirect('admin/admission');
+     
     }
 	
 	

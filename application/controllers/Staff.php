@@ -116,12 +116,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			/**/
 			$data['profile_img']  = 'assets/staffimage/'.$profileimg;
 			//print_r($data);die();
-			if($this->Staff_model->insert_role($data))
+			$result = $this->Staff_model->insert_role($data);
+			if($result == 'true')
 			{
 				$this->load->helper('url');
+				$this->session->set_flashdata('message','Teacher Successfully Added ');
 				redirect('staff/staff');
 			} else {
-			$this->load->helper('url');
+			    $this->load->helper('url');
 				redirect('staff/staff');
 			}
 	     
@@ -175,16 +177,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$this->Staff_model->staff_status($id,$value);
-		$this->load->helper('url');
-		redirect('staff/staff');
+		$result = $this->Staff_model->staff_status($id,$value);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Teacher Status Successfully Updated ');
+			redirect('staff/staff');
+		} else {
+			$this->load->helper('url');
+			redirect('staff/staff');
+		}
+		
 	}
 	
 	function delete_status($id)
 	{
-	  $this->Staff_model->delete_status($id);
-	  $this->load->helper('url');
-	  redirect('staff/staff');
+	  $sess_data = $this->session->all_userdata();
+	  if($sess_data['user_id'] == '' ){redirect('login/login');}
+	  $result = $this->Staff_model->delete_status($id);
+	  if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Teacher Successfully Deleted ');
+			redirect('staff/staff');
+		} else {
+			$this->load->helper('url');
+			redirect('staff/staff');
+		}
+	  
 	}
 	
 	public function view_staff_details($id)
@@ -269,8 +289,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$data['device_id_ar']=$gt->translate("en","ar",$this->input->post('device_id'));
 		$data['device_type_ar']=$gt->translate("en","ar",$this->input->post('device_type'));
 		
-		$this->Staff_model->update_staaff($id,$data);
-	    redirect('staff/staff');
+		$result = $this->Staff_model->update_staaff($id,$data);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Teacher Successfully Updated ');
+			redirect('staff/staff');
+		} else {
+			$this->load->helper('url');
+			redirect('staff/staff');
+		}
+	    
     }
 	
 	

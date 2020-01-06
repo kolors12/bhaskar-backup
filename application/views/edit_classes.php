@@ -157,7 +157,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                <input type="text" name="subjects" class="form-control" placeholder="Class Name" value="<?php echo $row['subjects']?>">
+                                                <input type="text" name="subjects_name" class="form-control" placeholder="Class Name" value="<?php echo $row['subjects_name']?>">
                                             </div>
                                         </div>
                                        

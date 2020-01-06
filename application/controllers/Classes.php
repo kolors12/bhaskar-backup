@@ -54,15 +54,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			   $data['class_grade_ar']=$gt->translate("en","ar",$this->input->post('class_grade'));
 			   
 			/**/
-			
-			if($this->Classes_model->insert_class($data))
+			$result = $this->Classes_model->insert_class($data);
+			if($result == 'true')
 			{
-			   $this->load->helper('url');
-			   redirect('classes/class_view');
+				$this->load->helper('url');
+				$this->session->set_flashdata('message','Class Successfully Added ');
+				redirect('classes/class_view');
 			} else {
-			   $this->load->helper('url');
-			   redirect('classes/class_view');
+			    $this->load->helper('url');
+				redirect('classes/class_view');
 			}
+			
 	     
 	  }
 
@@ -114,16 +116,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$this->Classes_model->class_status($id,$value);
-		$this->load->helper('url');
-		redirect('classes/class_view');
+		$result = $this->Classes_model->class_status($id,$value);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Class Status Successfully Updated ');
+			redirect('classes/class_view');
+		} else {
+			$this->load->helper('url');
+			redirect('classes/class_view');
+		}
+		
 	}
 	
 	function delete_classes($id)
 	{
-	  $this->Classes_model->delete_classes($id);
-	  $this->load->helper('url');
-	  redirect('classes/class_view');
+	  $result = $this->Classes_model->delete_classes($id);
+	  if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Class Successfully Deleted');
+			redirect('classes/class_view');
+		} else {
+			$this->load->helper('url');
+			redirect('classes/class_view');
+		}
+	  
 	}
 	
 	public function edit_classes($id)
@@ -142,13 +160,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$id = $this->input->post('id');
 		$data['class_name'] = $this->input->post('class_name');
 		$data['class_grade'] = $this->input->post('class_grade');
-		$data['subjects'] = $this->input->post('subjects');
+		$data['subjects_name'] = $this->input->post('subjects_name');
 		/*Translate String*/
 		$data['class_name_ar']=$gt->translate("en","ar",$this->input->post('class_name'));
 		$data['class_grade_ar']=$gt->translate("en","ar",$this->input->post('class_grade'));
-		$data['subjects_ar']=$gt->translate("en","ar",$this->input->post('subjects'));
-		$this->Classes_model->update_class($id,$data);
-		redirect('classes/class_view');
+		$data['subjects_name_ar']=$gt->translate("en","ar",$this->input->post('subjects_name'));
+		$result = $this->Classes_model->update_class($id,$data);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Class Successfully Updated');
+			redirect('classes/class_view');
+		} else {
+			$this->load->helper('url');
+			redirect('classes/class_view');
+		}
+		
     }
 	
 	

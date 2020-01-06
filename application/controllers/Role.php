@@ -45,13 +45,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			/*Translate String*/
 			$data['role_name_ar']=$gt->translate("en","ar",$this->input->post('role_name'));
 			/**/
-			
-			if($this->Role_model->insert_role($data))
+			$result = $this->Role_model->insert_role($data);
+			if($result == 'true')
 			{
 				$this->load->helper('url');
+				$this->session->set_flashdata('message','Role Successfully Added ');
 				redirect('role/role');
 			} else {
-			$this->load->helper('url');
+			    $this->load->helper('url');
 				redirect('role/role');
 			}
 	     
@@ -104,16 +105,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$this->Role_model->role_status($id,$value);
-		$this->load->helper('url');
-		redirect('role/role');
+		$result = $this->Role_model->role_status($id,$value);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Role Status Successfully Updated ');
+			redirect('role/role');
+		} else {
+			$this->load->helper('url');
+			redirect('role/role');
+		}
+		
 	}
 	
 	function delete_role($id)
 	{
-	  $this->Role_model->delete_role($id);
-	  $this->load->helper('url');
-	  redirect('role/role');
+	  $result = $this->Role_model->delete_role($id);
+	  if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Role Successfully Deleted ');
+			redirect('role/role');
+		} else {
+			$this->load->helper('url');
+			redirect('role/role');
+		}
+	
 	}
 	
 	public function edit_role($id)
@@ -133,8 +150,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$data['role_name'] = $this->input->post('role_name');
 		/*Translate String*/
 		$data['role_name_ar']=$gt->translate("en","ar",$this->input->post('role_name'));
-		$this->Role_model->update_Role($id,$data);
-		redirect('role/role');
+		$result = $this->Role_model->update_Role($id,$data);
+		
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Role Successfully Updated');
+			redirect('role/role');
+		} else {
+			$this->load->helper('url');
+			redirect('role/role');
+		}
     }
 	
 	

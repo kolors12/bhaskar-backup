@@ -9,6 +9,9 @@
                     <img src="<?php echo base_url();?>assets/images/user.png" class="user-photo" alt="User Profile Picture">
                 </div>
                 <div class="dropdown">
+				<?php $sess_data = $this->session->all_userdata();
+				print_r($sess_data['first_name']); 
+				?>
                     <span>Welcome,</span>
                     <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Louis Pierce</strong></a>
                     <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">

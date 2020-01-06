@@ -154,7 +154,7 @@
                    
                 </div>
             </div>
-			
+			<h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message'); ?></p></h6>
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
@@ -236,7 +236,7 @@
                                         </div>
 										 <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                          <input type="text" name="personal_no" class="form-control number" max= "10"  placeholder="<?php echo $this->lang->line('Personal Number');?>"required>
+                                          <input type="text" name="personal_no" class="form-control number"  placeholder="<?php echo $this->lang->line('Personal Number');?>"required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">

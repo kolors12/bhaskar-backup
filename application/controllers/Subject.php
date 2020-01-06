@@ -44,13 +44,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			/*Translate String*/
 			$data['subject_name_ar']=$gt->translate("en","ar",$this->input->post('subject_name'));
 			/**/
-			
-			if($this->Subject_model->insert_subject($data))
+			$result = $this->Subject_model->insert_subject($data);
+			if($result == 'true')
 			{
 				$this->load->helper('url');
+				$this->session->set_flashdata('message','Subject Successfully Added ');
 				redirect('subject/subject');
 			} else {
-			$this->load->helper('url');
+				$this->load->helper('url');
 				redirect('subject/subject');
 			}
 	     
@@ -103,16 +104,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$this->Subject_model->subject_status($id,$value);
-		$this->load->helper('url');
-		redirect('subject/subject');
+		$result = $this->Subject_model->subject_status($id,$value);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Subject Status Successfully Updated ');
+			redirect('subject/subject');
+		} else {
+			$this->load->helper('url');
+			redirect('subject/subject');
+		}
+		
 	}
 	
 	function delete_subject($id)
 	{
-	  $this->Subject_model->delete_subject($id);
-	  $this->load->helper('url');
-	  redirect('subject/subject');
+	  $result = $this->Subject_model->delete_subject($id);
+	  if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Subject Successfully Deleted ');
+			redirect('subject/subject');
+		} else {
+			$this->load->helper('url');
+			redirect('subject/subject');
+		}
+	 
 	}
 	
 	public function edit_subject($id)
@@ -132,8 +149,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$data['subject_name'] = $this->input->post('subject_name');
 		/*Translate String*/
 		$data['subject_name_ar']=$gt->translate("en","ar",$this->input->post('subject_name'));
-		$this->Subject_model->update_Role($id,$data);
-		redirect('subject/subject');
+		$result = $this->Subject_model->update_Role($id,$data);
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Subject Successfully Updated ');
+			redirect('subject/subject');
+		} else {
+			$this->load->helper('url');
+			redirect('subject/subject');
+		}
+		
     }
 	
 	

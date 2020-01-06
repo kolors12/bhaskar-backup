@@ -64,7 +64,6 @@ class Login extends CI_Controller {
 		
 		  $user_session_items = array(
 				
-				
 			'user_id' => $row->user_id,
 			'first_name' => '',
 			'last_name' => '',

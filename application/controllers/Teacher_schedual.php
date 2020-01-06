@@ -136,9 +136,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	function delete_schedual($id)
 	{
-	  $this->Teacher_schedual_model->delete_schedual($id);
-	  $this->load->helper('url');
-	  redirect('teacher_schedual/teacher_schedual_view');
+	  $result = $this->Teacher_schedual_model->delete_schedual($id);
+	  if($result == 'true')
+		{
+			$this->load->helper('url');
+			$this->session->set_flashdata('message','Teacher Schedual Successfully Deleted ');
+			redirect('teacher_schedual/teacher_schedual_view');
+		} else {
+			$this->load->helper('url');
+			redirect('teacher_schedual/teacher_schedual_view');
+		}
+	 
 	}
 	
 	public function edit_teacher_schedual($id)
