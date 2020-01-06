@@ -123,8 +123,8 @@
                         <h1>Users</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Oculux</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Users</li>
+                            <!-- <li class="breadcrumb-item"><a href="#">Oculux</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Users</li> -->
                             </ol>
                         </nav>
                     </div>            
@@ -135,7 +135,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <ul class="nav nav-tabs">
-                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Users">Users</a></li>
+                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Users">List Of Users </a></li>
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#addUser">Add User</a></li>        
                         </ul>
                         <div class="tab-content mt-0">
@@ -191,7 +191,7 @@
 												<?php } ?>
 												
 						
-												<a href="<?php echo base_url(); ?>users/edit_user/<?php echo $row['user_id'];?>"><button type="button" class="btn btn-info btn-sm removebtn" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-check-square-o"></i></button></a>
+												<!-- <a href="<?php echo base_url(); ?>users/edit_user/<?php echo $row['user_id'];?>"><button type="button" class="btn btn-info btn-sm removebtn" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-check-square-o"></i></button></a> -->
 												
 												<a Onclick="return ConfirmDelete();" href="<?php echo base_url(); ?>users/delete_user/<?php echo $row['user_id'];?>"><button type="button" class="btn btn-danger btn-sm removebtn" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o"></i></button></a>
 												

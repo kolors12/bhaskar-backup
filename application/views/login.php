@@ -19,7 +19,7 @@
 <div class="auth-main particles_js">
     <div class="auth_div vivify popIn">
         <div class="auth_brand">
-            <a class="navbar-brand" href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/icon.svg" width="30" height="30" class="d-inline-block align-top mr-2" alt="">W3softsolb</a>
+            <a class="navbar-brand" href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/icon.svg" width="30" height="30" class="d-inline-block align-top mr-2" alt="">W3softsol</a>
         </div>
 		<h4><p class="text-danger col-sm-12 text-success" ><?php echo $this->session->flashdata('message'); ?></p></h4>
         <div class="card">
