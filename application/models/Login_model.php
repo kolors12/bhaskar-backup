@@ -16,11 +16,11 @@ class Login_model extends CI_Model {
             $row = $query->row();
             $data = array(
 			'user_id' => $row->user_id,
-			'first_name' => $row->user_name,
-			'last_name' => $row->user_email,
-			'user_email' => $row->user_phone,
-			'mobile_number' => $row->user_password,
-			'user_password' => $row->user_address,
+			'first_name' => $row->first_name,
+			'last_name' => $row->last_name,
+			'user_email' => $row->user_email,
+			'mobile_number' => $row->mobile_number,
+			'user_password' => $row->user_password,
 			'role_type' => $row->role_type,
 			'user_status' => $row->user_status,
 			'validated' => true

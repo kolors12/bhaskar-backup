@@ -69,12 +69,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		
-		public function update_school_schedual($id,$data)
-		{
-			$this->db->where(array('sch_id' =>$id))->set($data)->update('school_schedual');
-			return true;
-			
+		function update_school_schedual($id,$data){
+			$check_entry = $this->db->get_where('school_schedual',array('to_time'=>$data['to_time'], 'from_time' => $data['from_time'], 'status'=> '1'));
+			$num_of_rows = $check_entry->num_rows();
+	
+			if($num_of_rows != 0 ){
+				$result = 2;
+			} else {
+				$this->db->where('sch_id', $id);	
+				if( $this->db->update('school_schedual', $data))
+				{
+					$result = 1;
+				}else{
+					$result = 6;
+				}
+			}
+			return $result;
 		}
+
 
 		function count_all($class_id,$schedual_day)
 		{

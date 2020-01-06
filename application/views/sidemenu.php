@@ -1,6 +1,6 @@
 <div id="left-sidebar" class="sidebar">
         <div class="navbar-brand">
-            <a href="index.html"><img src="<?php echo base_url();?>assets/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"><span>W3softsol</span></a>
+            <a href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"><span>W3softsol</span></a>
             <button type="button" class="btn-toggle-offcanvas btn btn-sm float-right"><i class="lnr lnr-menu icon-close"></i></button>
         </div>
         <div class="sidebar-scroll">
@@ -9,11 +9,9 @@
                     <img src="<?php echo base_url();?>assets/images/user.png" class="user-photo" alt="User Profile Picture">
                 </div>
                 <div class="dropdown">
-				<?php $sess_data = $this->session->all_userdata();
-				print_r($sess_data['first_name']); 
-				?>
+				<?php $sess_data = $this->session->all_userdata();?>
                     <span>Welcome,</span>
-                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong>Louis Pierce</strong></a>
+                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown"><strong><?php echo $sess_data['first_name']; ?>&nbsp;<?php echo $sess_data['last_name']; ?></strong></a>
                     <ul class="dropdown-menu dropdown-menu-right account vivify flipInY">
                         <li><a href="<?php echo base_url('login/profile_page');?>"><i class="fa fa-user" aria-hidden="true"></i>My Profile</a></li>
                         <!--li><a href="app-inbox.html"><i class="fa fa-commenting" aria-hidden="true"></i>Messages</a></li>
@@ -22,10 +20,11 @@
                     </ul>
                 </div>                
             </div>  
+            
             <nav id="left-sidebar-nav" class="sidebar-nav">
                 <ul id="main-menu" class="metismenu">
                     <li class="header">Main</li>
-                    <li class="active open"><a href="<?php echo base_url('dashboard/dashboard');?>"><i class="fa fa-sun-o" aria-hidden="true"></i><span><?php  echo $this->lang->line('Dashboard'); ?></span></a></li>
+                    <li class=""><a href="<?php echo base_url('dashboard/dashboard');?>"><i class="fa fa-sun-o" aria-hidden="true"></i><span><?php  echo $this->lang->line('Dashboard'); ?></span></a></li>
                     <li><a href="<?php echo base_url('users/users');?>"><i class="fa fa-user" aria-hidden="true"></i><span><?php  echo $this->lang->line('Users'); ?></span></a></li>
                     <li><a href="<?php echo base_url('admin/admission');?>"> <i class="fa fa-grav" aria-hidden="true"></i><span><?php  echo $this->lang->line('Student_Admission'); ?> </span></a></li>
 					<li><a href="<?php echo base_url('staff/staff');?>"> <i class="fa fa-star" aria-hidden="true"></i><span><?php  echo $this->lang->line('Teacher_Registration'); ?></span></a></li>
@@ -52,3 +51,6 @@
             </nav>     
         </div>
     </div>
+
+
+    

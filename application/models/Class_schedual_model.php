@@ -39,14 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 
 		}
-		// public  function insert_school_schedual($data)
-		// {
-		// 	$this->db->insert('class_schedual', $data);
-		// 	return true;
-		// }
-
-
-		 public function insert_school_schedual($data){
+		
+		public function insert_school_schedual($data){
 			$check_entry = $this->db->get_where('class_schedual',array('to_time'=>$data['to_time'], 'from_time' => $data['from_time'], 'status'=> '1' ));
 			$num_of_rows = $check_entry->num_rows();
 	
@@ -76,11 +70,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		
-		public function update_class_schedual($id,$data)
-		{
-			$this->db->where(array('cls_sch_id' =>$id))->set($data)->update('class_schedual');
-			return true;
+		function update_class_schedual($id,$data){
+			$check_entry = $this->db->get_where('class_schedual',array('to_time'=>$data['to_time'], 'from_time' => $data['from_time'], 'status'=> '1'));
+			$num_of_rows = $check_entry->num_rows();
+	
+			if($num_of_rows != 0 ){
+				$result = 2;
+			} else {
+				$this->db->where('cls_sch_id', $id);	
+				if( $this->db->update('class_schedual', $data))
+				{
+					$result = 1;
+				}else{
+					$result = 6;
+				}
+			}
+			return $result;
 		}
+
+
+
 
 		function count_all($class_id,$lesson_name,$schedual_day)
 		{

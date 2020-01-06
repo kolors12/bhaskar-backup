@@ -171,8 +171,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$data['subjects_ar']=$gt->translate("en","ar",$this->input->post('subjects'));
 		$data['to_time_ar']=$gt->translate("en","ar",$this->input->post('to_time'));
 		$data['from_time_ar']=$gt->translate("en","ar",$this->input->post('from_time'));
-		$this->School_schedual_model->update_school_schedual($id,$data);
-		redirect('school_schedual/school_schedual_view');
+		$result = $this->School_schedual_model->update_school_schedual($id,$data);
+		if($result == '1')
+			{
+			   $this->load->helper('url');
+			   $this->session->set_flashdata('message',' Successfully Updated School schedual');
+			   redirect('school_schedual/school_schedual_view');
+			} else if ($result == '2') {
+			   $this->load->helper('url');
+			   $this->session->set_flashdata('message','Please cheeck Timeings');
+			   redirect('school_schedual/school_schedual_view');
+			} else {
+				$this->load->helper('url');
+				$this->session->set_flashdata('message','Please The cheeck the data');
+				redirect('school_schedual/school_schedual_view');
+			}
+		
     }
 	
 	

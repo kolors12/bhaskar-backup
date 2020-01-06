@@ -143,7 +143,7 @@
             <div class="block-header">
                 <div class="row clearfix">
                     <div class="col-md-6 col-sm-12">
-                        <h1><?php  echo $this->lang->line('Student Admission');?></h1>
+                        <h1><?php  echo $this->lang->line('Student_Admission');?></h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                             <!--li class="breadcrumb-item"><a href="#">School App</a></li>
@@ -196,7 +196,7 @@
                                                 <th><?php  echo $this->lang->line('Date_of_Birth'); ?></th>
                                                 <th><?php  echo $this->lang->line('Student_Age'); ?></th>
                                                 <th><?php  echo $this->lang->line('Level_of_Grade'); ?></th>
-												<!--th><?php  echo $this->lang->line('View_Details'); ?></th-->
+												<!--th><?php  //echo $this->lang->line('View_Details'); ?></th-->
 												<th><?php  echo $this->lang->line('Admission_Status'); ?></th>
                                                 <th><?php  echo $this->lang->line('Action'); ?></th>
                                             </tr>

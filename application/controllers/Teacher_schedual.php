@@ -178,16 +178,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$data['subjects_ar']=$gt->translate("en","ar",$this->input->post('subjects'));
 		$data['to_time_ar']=$gt->translate("en","ar",$this->input->post('to_time'));
 		$data['from_time_ar']=$gt->translate("en","ar",$this->input->post('from_time'));
-		$this->Teacher_schedual_model->update_teacher_schedual($id,$data);
-		redirect('teacher_schedual/teacher_schedual_view');
+		$result = $this->Teacher_schedual_model->update_teacher_schedual($id,$data);
+		if($result == '1')
+			{
+			   $this->load->helper('url');
+			   $this->session->set_flashdata('message',' Successfully Updated Teacher Schedual');
+			   redirect('teacher_schedual/teacher_schedual_view');
+			} else if ($result == '2') {
+			   $this->load->helper('url');
+			   $this->session->set_flashdata('message','Please cheeck Timeings');
+			   redirect('teacher_schedual/teacher_schedual_view');
+			} else {
+				$this->load->helper('url');
+				$this->session->set_flashdata('message','Please The cheeck the data');
+				redirect('teacher_schedual/teacher_schedual_view');
+			}
+		
 	}
 	public function view_timetabel()
 	{
-		//$gt = new GoogleTranslate();	
-		// $sess_data = $this->session->all_userdata();
-		// if($sess_data['user_id'] == '' ){redirect('login/login');}
-		//echo"gfdsgjhjhfds";
-        $this->load->view('timetabel_view',$data);
+		$gt = new GoogleTranslate();	
+		$sess_data = $this->session->all_userdata();
+		if($sess_data['user_id'] == '' ){redirect('login/login');}
+		$this->load->view('timetabel_view',$data);
 		
 	}
 	

@@ -26,10 +26,7 @@ class Login extends CI_Controller {
 			}
 	}
 	
-	/* public function login()
-	{
-		$this->load->view('login');
-	} */
+	
 	
 	
 	public function login()
@@ -86,6 +83,8 @@ class Login extends CI_Controller {
 	
 	public function profile_page()
 	{
+		$sess_data = $this->session->all_userdata();
+		if($sess_data['user_id'] == '' ){redirect('login/login');}
 		$this->load->view('profile_page');
 	}
 }
