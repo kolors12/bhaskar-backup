@@ -19,9 +19,16 @@ class Login_model extends CI_Model {
 			'first_name' => $row->first_name,
 			'last_name' => $row->last_name,
 			'user_email' => $row->user_email,
+			'gender' => $row->gender,
 			'mobile_number' => $row->mobile_number,
 			'user_password' => $row->user_password,
 			'role_type' => $row->role_type,
+			'date_of_birth' => $row->date_of_birth,
+			'desgenation' => $row->desgenation,
+			'country' => $row->country,
+			'state' => $row->state,
+			'city' => $row->city,
+			'address' => $row->address,
 			'user_status' => $row->user_status,
 			'validated' => true
 			);
@@ -30,11 +37,12 @@ class Login_model extends CI_Model {
         } 
 	}
 	
-	/* public function updatepassword($user_id,$data)
+	 public function update_profile($id,$data)
     {
-		$this->db->where(array('user_id' =>$user_id))->set($data)->update('admin_user');
+		$this->db->where(array('user_id' =>$id))->set($data)->update('users');
 		return true;
 	}
+	/*
 	public function user_count_list()
     {
 		$query = $this ->db->get('users');

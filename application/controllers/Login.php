@@ -78,14 +78,40 @@ class Login extends CI_Controller {
 		
 	}
 	
-	
-	
-	
 	public function profile_page()
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
 		$this->load->view('profile_page');
 	}
+	public function update_profile()
+    {
+		$sess_data = $this->session->all_userdata();
+		if($sess_data['user_id'] == '' ){redirect('login/login');}
+		// $gt = new GoogleTranslate();
+		$id = $this->input->post('id');
+		$data['first_name'] = $this->input->post('first_name');
+		$data['last_name'] = $this->input->post('last_name');
+		$data['gender'] = $this->input->post('gender');
+		$data['date_of_birth'] = $this->input->post('date_of_birth');
+		$data['country'] = $this->input->post('country');
+		$data['state'] = $this->input->post('state');
+		$data['city'] = $this->input->post('city');
+		$data['address'] = $this->input->post('address');
+		/*Translate String*/
+		//$data['role_name_ar']=$gt->translate("en","ar",$this->input->post('role_name'));
+		$result = $this->Login_model->update_profile($id,$data);
+		
+		if($result == 'true')
+		{
+			$this->load->helper('url');
+		    //$this->logout();
+			$this->session->set_flashdata('message','User Profile Successfully Updated');
+			redirect('login/profile_page');
+		} else {
+			$this->load->helper('url');
+			redirect('login/profile_page');
+		}
+    }
 }
 ?>
