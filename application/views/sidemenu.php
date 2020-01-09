@@ -32,9 +32,9 @@
 					<li><a href="<?php echo base_url('school_schedual/school_schedual_view');?>"> <i class="fa fa-handshake-o" aria-hidden="true"></i><span><?php  echo $this->lang->line('Schools_Schedual'); ?></a></li>
 					<li><a href="<?php echo base_url('class_schedual/class_schedual_view');?>"> <i class="fa fa-caret-square-o-up" aria-hidden="true"></i>
                     <span><?php  echo $this->lang->line('Class_Schedual'); ?></a></li>
-                    <!--li><a href="employee.html"><i class="icon-users"></i><span>Employee</span></a></li>
-                    <li><a href="activities.html"><i class="icon-equalizer"></i><span>Activities</span></a></li>
-                    <li><a href="holidays.html"><i class="icon-flag"></i><span>Holidays</span></a></li>
+                    <li><a href="<?php echo base_url('Classes_assign/class_assign_view');?>"><i class="icon-users"></i><span></span>Students Assign Class</a></li>
+                    <li><a href="<?php echo base_url('Attendance/attendance_view');?>"><i class="icon-equalizer"></i><span>Attendance</span></a></li>
+                    <!--li><a href="holidays.html"><i class="icon-flag"></i><span>Holidays</span></a></li>
                     <li><a href="events.html"><i class="icon-calendar"></i><span>Events</span></a></li>
                     <li><a href="payroll.html"><i class="icon-credit-card"></i><span>Payroll</span></a></li>
                     <li><a href="accounts.html"><i class="icon-wallet"></i><span>Accounts</span></a></li>
