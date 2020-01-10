@@ -1,5 +1,8 @@
 
 <!-- Javascript -->
+<script>
+var base_url = "<?php echo base_url(); ?>";
+</script>
 <script src="<?php echo base_url();?>assets/bundles/libscripts.bundle.js"></script>
 <script src="<?php echo base_url();?>assets/bundles/vendorscripts.bundle.js"></script>
 
@@ -12,4 +15,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/jquery.validate.js"></script>
+<script src="<?php echo base_url();?>assets/js/main.js"></script>
 <!-- <script src="<?php //echo base_url();?>assets/js/hrdashboard.js"></script> -->

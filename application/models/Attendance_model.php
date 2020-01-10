@@ -11,16 +11,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$result = $query_result->result_array();
 			return $result;
 		}
-		public function get_students()
+		public function get_subject()
 		{
-			$this->db->order_by('adm_id', 'Desc');
+			$this->db->order_by('subject_id', 'Desc');
 			$this->db->where('status',1);
-			$query_result=$this->db->get('admission_users');
+			$query_result=$this->db->get('subjects');
 			$result = $query_result->result_array();
 			return $result;
 		}
-			function get_sub_category($category_id){
-			$query = $this->db->get_where('admission_users', array('level_of_grade' => $category_id));
+			function students_details($clas_id){
+			$query = $this->db->get_where('admission_users', array('level_of_grade' => $clas_id));
 			return $query;
 			}
 
@@ -44,10 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return true;
 		}
 		
-		public function delete_assign_student($id)
+		public function delete_student_attendance($id)
 		{
-			$this->db->where('cls_id',$id);
-			$query=$this->db->delete('classes_assign');
+			$this->db->where('attend_id',$id);
+			$query=$this->db->delete('attendance');
 			if($query)
 			{
 			return true;
@@ -58,19 +58,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		}
 		
-		public function insert_assign_studenst($data){
-			$check_entry = $this->db->get_where('classes_assign',array('student_id'=>$data['student_id']));
+		public function insert_attendance($data){
+			
+			$check_entry = $this->db->get_where('attendance',array('present_day'=>$data['present_day'],'subject_id'=>$data['subject_id'],'class_id'=>$data['class_id']));
 			$num_of_rows = $check_entry->num_rows();
-	
+
 			if($num_of_rows != 0 ){
 				$result = 2;
 			} else {
-				if( $this->db->insert('classes_assign', $data))
-				{
-					$result = 1;
-				}else{
-					$result = 6;
-				}
+				$student_id = $data['student_id'];
+					unset($data['student_id']);
+					for ($i = 0; $i < count($student_id); $i++ ) 
+					{
+						$data['student_id'] = $student_id[$i];
+							if( $this->db->insert('attendance', $data))
+							{
+								$result = 1;
+							}else{
+								$result = 6;
+							}
+					
+				   }
 			}
 			return $result;
 		}
@@ -99,16 +107,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function make_query($class_id)
 		{
 			$query = "
-			SELECT c.class_name,c.class_name_ar,c.class_grade,c.class_grade_ar,au.student_name,au.student_name_ar,cs.cls_id,cs.class_id FROM classes_assign as cs
-			left join classes as c ON cs.class_id = c.class_id
-			left join admission_users as au ON cs.student_id = au.adm_id
-			WHERE cs.status IN (0,1)  
+			SELECT * FROM attendance as at
+			left join classes as c ON c.class_id = at.class_id
+			left join admission_users as au ON au.adm_id = at.student_id
+			left join subjects as su ON su.subject_id = at.subject_id
+			WHERE at.status IN (0,1)  
 			";
 			if(isset($class_id) && $class_id != "")
 			{
-			$query .= "AND cs.class_id LIKE '%$class_id%'";
+			$query .= "AND at.class_id LIKE '%$class_id%'";
 			}
-			$query .= "ORDER BY cs.class_id DESC";
+			$query .= "ORDER BY at.attend_id DESC";
 			return $query;
 		}
 
@@ -131,30 +140,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					++$i;
 					
 					if($siteLang == 'arabic'){
-						
+
+						$semister	     =	$row['semister_ar'];
 						$class_name	     =	$row['class_name_ar'];
 						$class_grade	 =	$row['class_grade_ar'];
 						$student_name	 =	$row['student_name_ar'];
-					   }else{
+						$present_day	 =	$row['present_day'];
+						$subject_name	     =	$row['subject_name_ar'];
 						
+					   }else{
+
+						$semister  	    =	$row['semister'];
 						$class_name  	=	$row['class_name'];
 						$class_grade	=	$row['class_grade'];
 						$subjects 		=	$row['subjects'];
-						$student_name 		=	$row['student_name'];
+						$student_name   =	$row['student_name'];
+						$present_day 	=	$row['present_day'];
+						$subject_name 		=	$row['subject_name'];
 					   }
 					
 					   $output .= '
 					   <tr>
 						<td>'.$i.'</td>
+						<td><strong>'.  $semister.'</strong></td>
 						<td><a href="'.base_url().'classes_assign/view_students/'.$row['class_id'].'">'. $class_name.'</a></td>
 						<td><strong>'.  $class_grade.'</strong></td>
+						<td><strong>'.  $subject_name .'</strong></td>
+						<td><strong>'.  $present_day .'</strong></td>
 						<td><strong>'.  $student_name .'</strong></td>
 						
 					
 						<td>';
 						
 						$output .= '
-						<a Onclick="return ConfirmDelete();" href="'.base_url().'classes_assign/delete_assign_student/'.$row['cls_id'].'"><button type="button" class="btn btn-danger btn-sm removebtn" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button></a>
+						<a Onclick="return ConfirmDelete();" href="'.base_url().'attendance/delete_student_attendance/'.$row['attend_id'].'"><button type="button" class="btn btn-danger btn-sm removebtn" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button></a>
 					</td>
 					</tr>
 					';

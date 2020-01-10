@@ -33,41 +33,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
 		$data['class'] = $this->Attendance_model->get_class();
-		$data['students'] = $this->Attendance_model->get_students();
+		$data['subject'] = $this->Attendance_model->get_subject();
         $this->load->view('attendance',$data);
 		
 	}
-		function get_sub_category(){
-		$category_id = $this->input->post('id',TRUE);
-		print_r($category_id);die();
-		$data = $this->Attendance_model->get_sub_category($category_id)->result();
+		function students_details(){
+		$clas_id = $this->input->post('id',TRUE);
+		$data = $this->Attendance_model->students_details($clas_id)->result();
 		echo json_encode($data);
 		}
-	public function insert_assign_studenst()
+	public function insert_attendance()
 	 {
-		      $gt = new GoogleTranslate();
-			//   $rev = $this->input->post('student_id');
-			//   $data=array(
-			//   'student_id'=>implode(",",$rev),
-			//   );
-			  $data['class_id'] = $this->input->post('class_id');
-			  $data['student_id'] = $this->input->post('student_id');
+		       $gt = new GoogleTranslate();
 			
-			 $result = $this->Classes_assign_model->insert_assign_studenst($data);
-			 if($result == '1')
-			{
-			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Student Successfully Added to Class');
-			   redirect('classes_assign/class_assign_view');
-			} else if ($result == '2') {
-			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Student Allready Added To Class');
-			   redirect('classes_assign/class_assign_view');
-			} else {
-				$this->load->helper('url');
-				$this->session->set_flashdata('message','Please The cheeck the data');
-				redirect('classes_assign/class_assign_view');
-			}
+				$data['semister'] = $this->input->post('semister');
+				$data['present_day'] = $this->input->post('present_day');
+				$data['class_id'] = $this->input->post('class_id');
+				$data['student_id'] = $this->input->post('student_id');
+				$data['subject_id'] = $this->input->post('subject_id');
+			    /*Translate String*/
+				$data['semister_ar']=$gt->translate("en","ar",$this->input->post('semister'));
+				//print_r($data);die();
+			   $result = $this->Attendance_model->insert_attendance($data);
+				 if($result == '1')
+				{
+					$this->load->helper('url');
+					$this->session->set_flashdata('message','Class Attendance Successfully Submited ');
+					redirect('attendance/attendance_view');
+				} else if ($result == '2') {
+					$this->load->helper('url');
+					$this->session->set_flashdata('message','Attendance Allready Added Completed');
+					redirect('attendance/attendance_view');
+				} else {
+					$this->load->helper('url');
+					$this->session->set_flashdata('message','Please The cheeck the data');
+					redirect('attendance/attendance_view');
+				}
 			
 			
 	     
@@ -84,8 +85,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->library('pagination');
 		$config = array();
 		$config['base_url'] = '#';
-		$config['total_rows'] = $this->Classes_assign_model->count_all($class_id);
-		$config['per_page'] = 8;
+		$config['total_rows'] = $this->Attendance_model->count_all($class_id);
+		$config['per_page'] = 9;
 		$config['uri_segment'] = 3;
 		$config['use_page_numbers'] = TRUE;
 		$config['full_tag_open'] = '<ul class="pagination">';
@@ -110,23 +111,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$start = ($page - 1) * $config['per_page'];
 		$output = array(
 		'pagination_link'  => $this->pagination->create_links(),
-		'admissions_list'   => $this->Classes_assign_model->fetch_data($config["per_page"], $start, $class_id)
+		'admissions_list'   => $this->Attendance_model->fetch_data($config["per_page"], $start, $class_id)
 		);
 		echo json_encode($output);
 	}
 	
 
-	function delete_assign_student($id)
+	function delete_student_attendance($id)
 	{
-	  $result = $this->Classes_assign_model->delete_assign_student($id);
+	  $result = $this->Attendance_model->delete_student_attendance($id);
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Student  Successfully Deleted');
-			redirect('classes_assign/class_assign_view');
+			$this->session->set_flashdata('message','Student Attendance Successfully Deleted');
+			redirect('attendance/attendance_view');
 		} else {
 			$this->load->helper('url');
-			redirect('classes_assign/class_assign_view');
+			redirect('attendance/attendance_view');
 		}
 	  
 	}

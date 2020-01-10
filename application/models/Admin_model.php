@@ -2,7 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	class Admin_model extends CI_Model {
-	
+		
+		public function get_class()
+		{
+			$this->db->order_by('class_id', 'ASC');
+			$this->db->where('status',1);
+			$query_result=$this->db->get('classes');
+			$result = $query_result->result_array();
+			return $result;
+		}
 	   public function admission_view()
 		{
 			$this->db->order_by('adm_id', 'Desc');
@@ -36,11 +44,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->db->insert('admission_users', $data);
 			return true;
 		}
+
+		// public function view_details($id)
+		// {
+		//     $query=$this->db->where(array('adm_id' =>$id))->get('admission_users');
+		// 	$result = $query->result_array();
+		// 	return $result;
+		// }
+
 		public function view_details($id)
 		{
-		    $query=$this->db->where(array('adm_id' =>$id))->get('admission_users');
-			$result = $query->result_array();
-			return $result;
+		  
+			$this->db->select('*');
+			$this->db->from('admission_users as au');
+			$this->db->join('classes as c','c.class_id = au.level_of_grade');
+			$this->db->where('au.adm_id',$id);
+			$query=$this->db->get();
+			$data=$query->result_array();
+			return $data;
 		}
 		
 		
@@ -60,19 +81,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function make_query($student_name, $level_of_grade)
 		{
 			$query = "
-			SELECT * FROM admission_users 
-			WHERE status IN (0,1)  
+			SELECT * FROM admission_users as au left join classes as c ON au.level_of_grade = c.class_id
+			WHERE au.status IN (0,1)  
 			";
 
 			if(isset($student_name) && $student_name != "")
 			{
-			$query .= "AND student_name LIKE '%$student_name%'";
+			$query .= "AND au.student_name LIKE '%$student_name%'";
 			}
 			if(isset($level_of_grade) && $level_of_grade != "")
 			{
-			$query .= " AND level_of_grade LIKE '%$level_of_grade%'";
+			$query .= " AND au.level_of_grade LIKE '%$level_of_grade%'";
 			}
-			$query .= "ORDER BY adm_id DESC";
+			$query .= "ORDER BY au.adm_id DESC";
 			return $query;
 		}
 
@@ -98,12 +119,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$student_name   =	$row['student_name_ar'];
 					$date_of_birth  =   $row['date_of_birth_ar'];
 					$age            =  	$row['age_ar'];
-					$level_of_grade =	$row['level_of_grade_ar'];
+					$class_name     =	$row['class_name_ar'];
+					$class_grade     =	$row['class_grade_ar'];
 					}else{
 					$student_name  =	$row['student_name'];
 					$date_of_birth =    $row['date_of_birth'];
 					$age           =	$row['age'];
-					$level_of_grade  =	$row['level_of_grade'];
+					$class_name    =	$row['class_name'];
+					$class_grade    =	$row['class_grade'];
 					}
 
 					$output .= '
@@ -112,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><a href="'.base_url().'admin/view_details/'.$row['adm_id'].'">'. $student_name.'</a></td>
 						<td>'. $date_of_birth.'</td>
 						<td>'. $age.'</td>
-						<td>'. $level_of_grade.'</td>
+						<td>'. $class_name.' '. $class_grade.'</td>
 
 						<!--td>
 						

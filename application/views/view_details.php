@@ -144,6 +144,8 @@
                             $emergency_no   =	$row['emergency_no_ar'];
                             $last_school_name   =	$row['last_school_name_ar'];
                             $mode_of_transportation   =	$row['mode_of_transportation_ar'];
+                            $class_name     =	$row['class_name_ar'];
+					        $class_grade     =	$row['class_grade_ar'];
                          
                             }else{
                             $student_name   =	$row['student_name'];
@@ -164,6 +166,8 @@
                             $emergency_no   =	$row['emergency_no'];
                             $last_school_name   =	$row['last_school_name'];
                             $mode_of_transportation   =	$row['mode_of_transportation'];
+                            $class_name    =	$row['class_name'];
+					        $class_grade    =	$row['class_grade'];
                            
                             }
                         
@@ -212,7 +216,7 @@
                                         </div>
 										 <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                 <strong><?php echo $this->lang->line('Level_of_Grade');?></strong> : <?php echo $level_of_grade?>
+                                                 <strong><?php echo $this->lang->line('Level_of_Grade');?></strong> : <?php echo $class_name; ?>  <?php echo $class_grade; ?>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">

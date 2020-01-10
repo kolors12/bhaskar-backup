@@ -32,7 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$gt = new GoogleTranslate();	
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-        $data['admission_view'] = $this->Admin_model->admission_view();
+		$data['class'] = $this->Admin_model->get_class();
+		$data['admission_view'] = $this->Admin_model->admission_view();
 		$this->load->view('admin_form',$data);
 		
 	}

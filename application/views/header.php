@@ -1,3 +1,4 @@
+<body class="theme-orange font-montserrat light_version">
  <nav class="navbar top-navbar">
         <div class="container-fluid">
 

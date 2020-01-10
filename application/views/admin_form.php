@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php $this->load->view('head');?>
+
 <style>
 .pagination li a{
     position: relative;
@@ -177,7 +178,12 @@
 									</div>
 									 <div class="col-lg-5 col-md-5 col-sm-12">
 									  <div class="form-group" style="margin-top:20px;">
-                                    <input type="text" id="level_grade" class="form-control " placeholder="<?php  echo $this->lang->line('Level_of_Grade'); ?>"  style="background-color: #fff; border-color: #fff;" required/>
+                                      <select class=" form-control show-tick " name="level_grade" id="level_grade" style="background-color: #fff; border-color: #fff;" required>
+                                        <option value=""><?php  echo $this->lang->line('Level_of_Grade');?></option>
+                                        <?php foreach ($class as $row) {?>
+                                        <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
+                                        <?php }?>
+                                    </select>
 									</div>
 									</div>
 									 <div class="col-lg-2 col-md-2 col-sm-12" style="margin-top:20px;">
@@ -221,20 +227,26 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                <input type="date" name="date_of_birth" class="form-control" placeholder="<?php  echo $this->lang->line('Date_of_Birth');?>" required>
+                                                <input type="text" id="datepicker" name="date_of_birth" class="form-control" placeholder="<?php  echo $this->lang->line('Date_of_Birth');?>" required>
                                             </div>
                                         </div>
             
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                <input type="text" name="age" class="form-control" placeholder="<?php  echo $this->lang->line('Student_Age');?>" required>
+                                                <input type="text" name="age" class="form-control number" placeholder="<?php  echo $this->lang->line('Student_Age');?>" required>
                                             </div>
                                         </div>
-										 <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="form-group">
-                                                <input type="text" name="level_of_grade" class="form-control" placeholder="<?php  echo $this->lang->line('Level_of_Grade');?>" required>
-                                            </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                          <div class="form-group">
+                                            <select class=" form-control show-tick " name="level_of_grade" id="level_of_grade" required>
+                                            <option value=""><?php  echo $this->lang->line('Level_of_Grade');?></option>
+                                            <?php foreach ($class as $row) {?>
+                                            <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
+                                            <?php }?>
+                                           </select>
+                                         </div>
                                         </div>
+										
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
                                                 <input type="text" name="place_of_birth" class="form-control" placeholder="<?php  echo $this->lang->line('Place_Of_Birth');?>" required>
@@ -374,16 +386,22 @@
     
 </div>
 <!-- Latest compiled and minified CSS -->
+
 <style>
 .error{
 	color: red;
 }
 </style>
+
 <script>
     $(document).ready(function(){
+        ////Date Picker//
+         ej.base.enableRipple(true);
+         var datepicker = new ej.calendars.DatePicker();
+         datepicker.appendTo('#datepicker');
         ///validation///
-        $("#form").validate({
-        });
+         $("#form").validate({
+         });
         ///filter and pagenation//
         filter_data(1);
         $("#search").on("click", function(){
@@ -440,6 +458,7 @@ function ConfirmDelete()
         return false;
     }
 </script>
+
 <?php $this->load->view('footer');?>
 </body>
 </html>

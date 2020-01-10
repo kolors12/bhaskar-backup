@@ -1,11 +1,6 @@
 <!doctype html>
 <html lang="en">
-<script>
-$(document).ready(function(){
-$("#form").validate({
-});
-});
-</script>
+
 <?php $this->load->view('head');?>
 
 <style>
@@ -30,7 +25,7 @@ $("#form").validate({
     display:none;
 }
 </style>
-<body class="theme-cyan font-montserrat light_version">
+<body class="theme-orange font-montserrat light_version">
 
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
@@ -199,9 +194,12 @@ $("#form").validate({
                                     <table class="table table-hover table-custom spacing8">
                                         <thead>
                                             <tr>
-											    <th><?php  echo $this->lang->line('S_no'); ?></th>
+                                                <th><?php  echo $this->lang->line('S_no'); ?></th>
+                                                <th>Semister</th>
                                                 <th><?php  echo $this->lang->line('Classes_Name'); ?></th>
                                                 <th><?php  echo $this->lang->line('Grade_Name'); ?></th>
+                                                <th>Subject Name</th>
+                                                <th>Present Day</th>
                                                 <th>Student Name</th>
                                                 <th><?php  echo $this->lang->line('Action'); ?></th>
                                             </tr>
@@ -215,8 +213,8 @@ $("#form").validate({
                             </div>
                             <div class="tab-pane" id="addUser">
                                 <div class="body mt-2">
-								<h5>Add To class</h5>
-								<form   class="form-horizontal" id="form" action="<?php echo base_url('classes_assign/insert_assign_studenst')?>"  method="post">
+								<h5>Add To Attendance</h5>
+								<form   class="form-horizontal" id="form" action="<?php echo base_url('attendance/insert_attendance')?>"  method="post">
                                     <div class="row clearfix">
 									
                                         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -230,13 +228,23 @@ $("#form").validate({
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                           <div class="form-group">
-                                            <input type="text" class=" form-control show-tick" value="<?php echo  $date = date('d-m-Y');?>">
+                                            <select class=" form-control show-tick " name="subject_id" id="subject_id" required>
+                                            <option value="">Select Subject</option>
+                                            <?php foreach ($subject as $row) {?>
+                                            <option value="<?php echo $row['subject_id'];?>"><?php echo $row['subject_name'];?></option>
+                                            <?php }?>
+                                           </select>
+                                         </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                          <div class="form-group">
+                                            <input type="text" class=" form-control" name="present_day" id="datepicker" placeholder="Select Date" required>
                                          </div>
                                         </div>
                                         
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                           <div class="form-group">
-                                            <select class=" form-control show-tick" name="class_id" id="class_id" required>
+                                            <select class=" form-control show-tick " name="class_id" id="classes_id" required>
                                             <option value="">Select Class & Grade</option>
                                             <?php foreach ($class as $row) {?>
                                             <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
@@ -245,25 +253,14 @@ $("#form").validate({
                                          </div>
                                         </div>
                                        
+                                        
                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                          <div class="form-group">
-                                            <select class=" selectpicker form-control show-tick" name="student_id"  multiple data-live-search="true" required>
-                                            <option value="">Select Student</option>
-                                            <?php foreach ($students as $row) {?>
-                                            <option value="<?php echo $row['adm_id'];?>"><?php echo $row['student_name'];?></option>
-                                            <?php }?>
+                                            <div class="form-group">
+                                             <select class=" selectpicker form-control show-tick" id="student" name="student_id[]"   multiple data-live-search="true"  required>
+                                             <option value="">Select Student</option>
                                             </select>
-                                         </div>
-                                        </div>
-                                        
-											<div class="form-group">
-											<label>Sub Category</label>
-											<select class="form-control" id="sub_category" name="sub_category" required>
-											<option>No Selected</option>
-
-											</select>
-											</div>
-                                        
+                                            </div>
+                                       </div>
                                        
                                         <div class="col-12">
                                             
@@ -289,41 +286,13 @@ $("#form").validate({
 	color: red;
 }
 </style>
-<script type="text/javascript">
-        $(document).ready(function(){
- 
-            $('#class_id').change(function(){ 
-			
-                var id=$(this).val();
-				alert(id);
-                $.ajax({
-                    url : "<?php echo site_url('attendance/get_sub_category');?>",
-                    method : "POST",
-                    data : {id: id},
-                    async : true,
-                    dataType : 'json',
-                    success: function(data){
-                         
-                        var html = '';
-                        var i;
-                        for(i=0; i<data.length; i++){
-                            html += '<option value='+data[i].adm_id+'>'+data[i].student_name+'</option>';
-                        }
-                        $('#sub_category').html(html);
- 
-                    }
-                });
-                return false;
-            }); 
-             
-        });
-    </script>
 <script>
     $(document).ready(function(){
-        //multi Search///
-        $('Subject').selectpicker();
-
-        ///validation///
+        ////Date Picker//
+         ej.base.enableRipple(true);
+         var datepicker = new ej.calendars.DatePicker();
+         datepicker.appendTo('#datepicker');
+       ///validation///
         $("#form").validate({
         });
         ///filter and pagenation//
@@ -337,7 +306,7 @@ $("#form").validate({
             var action = 'fetch_data';
             var class_id = $('#class_id').val();
             $.ajax({
-                url:"<?php echo base_url(); ?>classes_assign/fetch_data/"+page,
+                url:"<?php echo base_url(); ?>attendance/fetch_data/"+page,
                 method:"POST",
                 dataType:"JSON",
                 data:{action:action, class_id:class_id},

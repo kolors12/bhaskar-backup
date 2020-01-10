@@ -26,6 +26,8 @@
 <script src="<?php echo base_url();?>assets/js/jquery.validate.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"> </script>
 
+<script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+<link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
 
 
 </head>
