@@ -19,7 +19,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$result = $query_result->result_array();
 			return $result;
 		}
-
+			function get_sub_category($category_id){
+			$query = $this->db->get_where('admission_users', array('level_of_grade' => $category_id));
+			return $query;
+			}
 
 		public function all_students_view($id)
 		{

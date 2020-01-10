@@ -37,7 +37,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->load->view('attendance',$data);
 		
 	}
-
+		function get_sub_category(){
+		$category_id = $this->input->post('id',TRUE);
+		print_r($category_id);die();
+		$data = $this->Attendance_model->get_sub_category($category_id)->result();
+		echo json_encode($data);
+		}
 	public function insert_assign_studenst()
 	 {
 		      $gt = new GoogleTranslate();

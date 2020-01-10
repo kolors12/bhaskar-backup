@@ -236,7 +236,7 @@ $("#form").validate({
                                         
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                           <div class="form-group">
-                                            <select class=" form-control show-tick" name="class_id" required>
+                                            <select class=" form-control show-tick" name="class_id" id="class_id" required>
                                             <option value="">Select Class & Grade</option>
                                             <?php foreach ($class as $row) {?>
                                             <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
@@ -256,7 +256,13 @@ $("#form").validate({
                                          </div>
                                         </div>
                                         
+											<div class="form-group">
+											<label>Sub Category</label>
+											<select class="form-control" id="sub_category" name="sub_category" required>
+											<option>No Selected</option>
 
+											</select>
+											</div>
                                         
                                        
                                         <div class="col-12">
@@ -283,7 +289,35 @@ $("#form").validate({
 	color: red;
 }
 </style>
-
+<script type="text/javascript">
+        $(document).ready(function(){
+ 
+            $('#class_id').change(function(){ 
+			
+                var id=$(this).val();
+				alert(id);
+                $.ajax({
+                    url : "<?php echo site_url('attendance/get_sub_category');?>",
+                    method : "POST",
+                    data : {id: id},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+                         
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                            html += '<option value='+data[i].adm_id+'>'+data[i].student_name+'</option>';
+                        }
+                        $('#sub_category').html(html);
+ 
+                    }
+                });
+                return false;
+            }); 
+             
+        });
+    </script>
 <script>
     $(document).ready(function(){
         //multi Search///
