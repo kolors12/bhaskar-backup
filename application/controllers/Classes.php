@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result == 'true')
 			{
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Class Successfully Added ');
+				$this->session->set_flashdata('message1','Class Successfully Added ');
 				redirect('classes/class_view');
 			} else {
 			    $this->load->helper('url');
@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Class Status Successfully Updated ');
+			$this->session->set_flashdata('message1','Class Status Successfully Updated ');
 			redirect('classes/class_view');
 		} else {
 			$this->load->helper('url');
@@ -135,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Class Successfully Deleted');
+			$this->session->set_flashdata('message3','Class Successfully Deleted');
 			redirect('classes/class_view');
 		} else {
 			$this->load->helper('url');
@@ -169,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Class Successfully Updated');
+			$this->session->set_flashdata('message2','Class Successfully Updated');
 			redirect('classes/class_view');
 		} else {
 			$this->load->helper('url');

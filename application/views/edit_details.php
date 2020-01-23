@@ -154,7 +154,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                <input type="date" name="date_of_birth" class="form-control" placeholder="Date of Birth" value="<?php echo $row['date_of_birth']?>">
+                                                <input type="text" name="date_of_birth" id ="datepicker-12" class="form-control" placeholder="Date of Birth" value="<?php echo $row['date_of_birth']?>">
                                             </div>
                                         </div>
             
@@ -315,7 +315,11 @@
     </div>
     
 </div>
-
+<script>
+    $(document).ready(function(){
+    $( "#datepicker-12" ).datepicker();
+    });
+    </script>
 <!-- Javascript -->
 <script>
 function ConfirmDelete()

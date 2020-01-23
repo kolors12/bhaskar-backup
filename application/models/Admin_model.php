@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		function make_query($student_name, $level_of_grade)
 		{
 			$query = "
-			SELECT * FROM admission_users as au left join classes as c ON au.level_of_grade = c.class_id
+			SELECT au.student_name,au.student_name_ar,au.date_of_birth,au.date_of_birth_ar,au.age,au.age_ar,au.status,au.adm_id,c.class_name,c.class_name_ar,c.class_grade,c.class_grade_ar FROM admission_users as au left join classes as c ON au.level_of_grade = c.class_id
 			WHERE au.status IN (0,1)  
 			";
 
@@ -107,6 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 			$data = $this->db->query($query);
 			//echo $this->db->last_query();
+		//echo "<pre>"; print_r($data->result_array());echo "<pre>";
 			$output = '';
 			if($data->num_rows() > 0)
 			{
@@ -142,18 +143,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<a href="'.base_url().'admin/view_details/'.$row['adm_id'].'"><button type="button" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" data-original-title="Delete">View Details</button></a>
 						</td-->
 						<td scope="row">';
-						if($row['status'] == "0")
+						if($row['status'] == 0)
 						{ 
-							$output .= '<span class="label btn-xs badge badge-danger"> Inactive</span>.';
+							$output .= '<span class="label btn-xs badge badge-danger"> Inactive</span>';
 						}
 						else
 						{ 
-							$output .= '<span class="label btn-xs badge badge-success">Active</span>';
+							$output .= '<span class="label btn-xs badge badge-success">Active-'.$row['status'].'</span>';
 						}
 						$output .= '
 						</td>
 						<td>';
-						if ($row['status'] == '1') { 
+						if ($row['status'] == 1) { 
 							$output .= '<a  Onclick="return Inactive();" href="'.base_url().'admin/admission_status/'.$row['adm_id'].'/0'.'" data-toggle="tooltip" title="Inactive" class="btn btn-sm btn-primary changestatus"><span  class="fa fa-ban" title="Inactive"></span></a>';
 						 } else { 
 						$output .= '<a  Onclick="return Active();" href="'.base_url().'admin/admission_status/'.$row['adm_id'].'/1'.'" data-toggle="tooltip" title="Active" class="btn btn-sm btn-primary changestatus"><span class="fa fa-check-circle-o" title="Active"></span></a>';

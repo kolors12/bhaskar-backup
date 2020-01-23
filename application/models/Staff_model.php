@@ -143,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td scope="row">';
 						if($row['status'] == "0")
 						{ 
-							$output .= '<span class="label btn-xs badge badge-danger"> Inactive</span>.';
+							$output .= '<span class="label btn-xs badge badge-danger"> Inactive</span>';
 						}
 						else
 						{ 

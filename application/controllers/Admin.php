@@ -168,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result == 'true')
 			{
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Student Admission Successfully Completed ');
+				$this->session->set_flashdata('message1','Student Admission Successfully Completed ');
 				redirect('admin/admission');
 			} else {
 			    $this->load->helper('url');
@@ -225,11 +225,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
+		
 		$result = $this->Admin_model->admission_status($id,$value);
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Student Admission Status Successfully Updated ');
+			$this->session->set_flashdata('message1','Student Admission Status Successfully Updated ');
 			redirect('admin/admission');
 		} else {
 			$this->load->helper('url');
@@ -246,7 +247,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Student Admission Successfully Deleted ');
+			$this->session->set_flashdata('message3','Student Admission Successfully Deleted ');
 			redirect('admin/admission');
 		} else {
 			$this->load->helper('url');
@@ -411,7 +412,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 		$this->load->helper('url');
-		$this->session->set_flashdata('message','Student Admission Successfully Updated');
+		$this->session->set_flashdata('message2','Student Admission Successfully Updated');
 		redirect('admin/admission');
 		} else {
 		$this->load->helper('url');

@@ -64,15 +64,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result == '1')
 			{
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Successfully Added Class Schedual');
+			   $this->session->set_flashdata('message1','Successfully Added Class Schedual');
 			   redirect('class_schedual/class_schedual_view');
 			} else if ($result == '2') {
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Please cheeck Timeings');
+			   $this->session->set_flashdata('message3','Please cheeck Timeings');
 			   redirect('class_schedual/class_schedual_view');
 			} else {
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Please The cheeck the data');
+				$this->session->set_flashdata('message3','Please The cheeck the data');
 				redirect('class_schedual/class_schedual_view');
 			}
 	     
@@ -139,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Class Schedual Successfully Deleted ');
+			$this->session->set_flashdata('message3','Class Schedual Successfully Deleted ');
 			redirect('class_schedual/class_schedual_view');
 		} else {
 			$this->load->helper('url');
@@ -179,15 +179,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == '1')
 			{
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message',' Successfully Updated Class Schedual');
+			   $this->session->set_flashdata('message2',' Successfully Updated Class Schedual');
 			   redirect('class_schedual/class_schedual_view');
 			} else if ($result == '2') {
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Please cheeck Timeings');
+			   $this->session->set_flashdata('message3','Please cheeck Timeings');
 			   redirect('class_schedual/class_schedual_view');
 			} else {
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Please The cheeck the data');
+				$this->session->set_flashdata('message3','Please The cheeck the data');
 				redirect('class_schedual/class_schedual_view');
 			}
 		

@@ -154,7 +154,9 @@
                    
                 </div>
             </div>
-			<h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message'); ?></p></h6>
+			<h6 ><p class="text-success col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message1'); ?></p></h6>
+            <h6 ><p class="text-warning col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message2'); ?></p></h6>
+			<h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message3'); ?></p></h6>
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
@@ -181,7 +183,7 @@
 									</div>
 									</div>
 									 <div class="col-lg-2 col-md-2 col-sm-12" style="margin-top:20px;">
-                                    <button id="search" class="btn btn-danger">Search</button>
+                                    <button id="search" class="btn btn-success">Search</button>
 									</div>
                                 </div>
                                 </form>

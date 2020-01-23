@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result == 'true')
 			{
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Role Successfully Added ');
+				$this->session->set_flashdata('message1','Role Successfully Added ');
 				redirect('role/role');
 			} else {
 			    $this->load->helper('url');
@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Role Status Successfully Updated ');
+			$this->session->set_flashdata('message1','Role Status Successfully Updated ');
 			redirect('role/role');
 		} else {
 			$this->load->helper('url');
@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Role Successfully Deleted ');
+			$this->session->set_flashdata('message3','Role Successfully Deleted ');
 			redirect('role/role');
 		} else {
 			$this->load->helper('url');
@@ -155,7 +155,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Role Successfully Updated');
+			$this->session->set_flashdata('message2','Role Successfully Updated');
 			redirect('role/role');
 		} else {
 			$this->load->helper('url');
