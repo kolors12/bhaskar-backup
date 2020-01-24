@@ -14,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function staff_roles()
 		{
 			$this->db->order_by("role_name", "Desc");
+			$this->db->where('status',1);
 			$query_result=$this->db->get('roles');
 			$result = $query_result->result_array();
 			return $result;

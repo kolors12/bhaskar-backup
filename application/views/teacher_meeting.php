@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <?php $this->load->view('head');?>
 
 <style>
@@ -25,7 +24,7 @@
     display:none;
 }
 </style>
-<body class="theme-orange font-montserrat light_version">
+<body class="theme-cyan font-montserrat light_version">
 
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
@@ -144,7 +143,7 @@
             <div class="block-header">
                 <div class="row clearfix">
                     <div class="col-md-6 col-sm-12">
-                        <h1>Attendance</h1>
+                        <h1>Teacher Meeting</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                             <!--li class="breadcrumb-item"><a href="#">Oculux</a></li>
@@ -155,14 +154,15 @@
                    
                 </div>
             </div>
-            <h6 ><p class="text-success col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message'); ?></p></h6>
-            <h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message2'); ?></p></h6>
+            <h6 ><p class="text-success col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message1'); ?></p></h6>
+            <h6 ><p class="text-warning col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message2'); ?></p></h6>
+			<h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message3'); ?></p></h6>
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
                         <ul class="nav nav-tabs">
-                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Users">List of Attendance</a></li>
-                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#addUser"> Add Attendance</a></li>        
+                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Users">List of Teacher Meeting's</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#addUser">Add Teacher Meeting</a></li>        
                         </ul>
                         <div id="loading">
                         </div>
@@ -171,32 +171,17 @@
 							   
                                 <div class="search-fields" >
 								<div class="row clearfix">
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <div class="form-group" style="margin-top:20px;">
-                                        <select class="form-control show-tick" id="class_id" name="class_id" style="background-color: #fff; border-color: #fff;" required>
-                                        <option value=""><?php  echo $this->lang->line('Select_Class'); ?></option>
-                                        <?php foreach ($class as $row) {?>
-                                        <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
-                                        <?php }?>
-                                        </select>
-                                        </div>
+								    <div class="col-lg-5 col-md-5 col-sm-12">
+									 <div class="form-group" style="margin-top:20px;">
+                                    <input type="text"   id="class_name" class="form-control" placeholder="<?php  echo $this->lang->line('Classes_Name'); ?>" style="background-color: #fff; border-color: #fff;" required/>
+									</div>
                                     </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <div class="form-group" style="margin-top:20px;">
-                                        <select class="form-control show-tick"  id="subjects_id" style="background-color: #fff; border-color: #fff;" required>
-                                        <option value="">Select Subject</option>
-                                        <?php foreach ($subject as $row) {?>
-                                        <option value="<?php echo $row['subject_id'];?>"><?php echo $row['subject_name'];?></option>
-                                        <?php }?>
-                                        </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                        <div class="form-group" style="margin-top:20px;">
-                                        <input type="text" class=" form-control" name="date2" id = "date2" placeholder="Select Date" style="background-color: #fff; border-color: #fff;" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-sm-12" style="margin-top:20px;">
+                                    <div class="col-lg-5 col-md-5 col-sm-12">
+									 <div class="form-group" style="margin-top:20px;">
+                                    <input type="text"   id="class_grade" class="form-control" placeholder="<?php  echo $this->lang->line('Grade_Name'); ?>" style="background-color: #fff; border-color: #fff;" required/>
+									</div>
+									</div>  
+									<div class="col-lg-2 col-md-2 col-sm-12" style="margin-top:20px;">
                                     <button id="search" class="btn btn-success"><?php  echo $this->lang->line('Search'); ?></button>
 									</div>
                                 </div>
@@ -206,13 +191,11 @@
                                     <table class="table table-hover table-custom spacing8">
                                         <thead>
                                             <tr>
-                                                <th><?php  echo $this->lang->line('S_no'); ?></th>
-                                                <th>Semister</th>
+											    <th><?php  echo $this->lang->line('S_no'); ?></th>
                                                 <th><?php  echo $this->lang->line('Classes_Name'); ?></th>
                                                 <th><?php  echo $this->lang->line('Grade_Name'); ?></th>
-                                                <th>Subject Name</th>
-                                                <th>Present Day</th>
-                                                <th>Student Name</th>
+                                                <th><?php  echo $this->lang->line('Classes_Subjects'); ?></th>
+                                                <th><?php  echo $this->lang->line('Classes_Status'); ?></th>
                                                 <th><?php  echo $this->lang->line('Action'); ?></th>
                                             </tr>
                                         </thead>
@@ -225,57 +208,31 @@
                             </div>
                             <div class="tab-pane" id="addUser">
                                 <div class="body mt-2">
-								<h5>Add To Attendance</h5>
-								<form   class="form-horizontal" id="form" action="<?php echo base_url('attendance/insert_attendance')?>"  method="post">
+								<h5>Add Teacher Meeting</h5>
+								<form   class="form-horizontal" id="form" action="<?php echo base_url('teacher_meeting/insert_teacher_meeting')?>"  method="post">
                                     <div class="row clearfix">
 									
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                      <div class="col-lg-6 col-md-6 col-sm-12">
                                           <div class="form-group">
-                                            <select class=" form-control show-tick" name="semister" required>
-                                            <option value="">Select Semister </option>
-                                            <option value="Semister - 1">Semister - 1 </option>
-                                            <option value="Semister - 2">Semister - 2 </option>
-                                           </select>
-                                         </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                          <div class="form-group">
-                                            <select class=" form-control show-tick " name="subject_id" id="subject_id" required>
-                                            <option value="">Select Subject</option>
-                                            <?php foreach ($subject as $row) {?>
-                                            <option value="<?php echo $row['subject_id'];?>"><?php echo $row['subject_name'];?></option>
+                                            <select class="form-control show-tick" name="teacher_name"  required>
+                                            <option value="">Select Teacher</option>
+                                            <?php foreach ($teachers as $row) {?>
+                                            <option value="<?php echo $row['staff_id'];?>"><?php echo $row['f_name'];?> <?php echo $row['l_name'];?></option>
                                             <?php }?>
-                                           </select>
+                                            </select>
                                          </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                          <div class="form-group">
-                                            <input type="text" class=" form-control" name="present_day" id = "datepicker-12" placeholder="Select Date" required>
-                                         </div>
-                                        </div>
-                                        
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                          <div class="form-group">
-                                            <select class=" form-control show-tick " name="class_id" id="classes_id" required>
-                                            <option value="">Select Class & Grade</option>
-                                            <?php foreach ($class as $row) {?>
-                                            <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
-                                            <?php }?>
-                                           </select>
-                                         </div>
-                                        </div>
-                                       
-                                        
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                             <select class=" selectpicker form-control show-tick" id="student" name="student_id[]"   multiple data-live-search="true"  required>
-                                             <option value="">Select Student</option>
-                                            </select>
-                                            </div>
-                                       </div>
-                                       
+                                                <input type="text" name="meeting_date"  id="date2" class="form-control" placeholder="Select Date" required>
+											</div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                             <textarea type="text" name="description"  class="form-control " placeholder="Description" required></textarea>
+										</div>
+
                                         <div class="col-12">
-                                            
                                             <button type="submit"  name="Submit" value="Submit" class="btn btn-primary">Submit</button>
                                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Reset</button>
                                         </div>
@@ -298,14 +255,15 @@
 	color: red;
 }
 </style>
- 
+
 <script>
     $(document).ready(function(){
-        ////Date Picker//
-        $( "#date2" ).datepicker();
-        //$( "#datepicker-12" ).datepicker();
-        //$( "#datepicker-12" ).datepicker("setDate", "10w+1");
-       ///validation///
+         ////Date Picker//
+         $( "#date2" ).datepicker();
+        //multi Search///
+        $('Subject').selectpicker();
+
+        ///validation///
         $("#form").validate({
         });
         ///filter and pagenation//
@@ -315,18 +273,15 @@
         });
         function filter_data(page)
         {
-           
             $('#loading').show();
             var action = 'fetch_data';
-            var class_id = $('#class_id').val();
-            var subjects_id = $('#subjects_id').val();
-            var date2 = $('#date2').val();
-            
+            var class_name = $('#class_name').val();
+            var class_grade = $('#class_grade').val();
             $.ajax({
-                url:"<?php echo base_url(); ?>attendance/fetch_data/"+page,
+                url:"<?php echo base_url(); ?>classes/fetch_data/"+page,
                 method:"POST",
                 dataType:"JSON",
-                data:{action:action, class_id:class_id,subjects_id:subjects_id,date2:date2},
+                data:{action:action, class_name:class_name, class_grade:class_grade},
                 success:function(data)
                 {
                     $('tbody').html(data.admissions_list);
@@ -369,6 +324,7 @@ function ConfirmDelete()
 </script>
 
 <?php $this->load->view('footer');?>
+
 
 
 

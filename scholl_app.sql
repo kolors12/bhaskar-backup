@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2020 at 04:20 PM
+-- Generation Time: Jan 24, 2020 at 04:15 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
@@ -86,14 +86,12 @@ INSERT INTO `admission_users` (`adm_id`, `student_name`, `student_name_ar`, `dat
 (13, 'Virat', 'سوغو فينكاتا رامانا', '2019-12-06', '2019/12/06', '22', '22', '19', 'عبدالعزيز عيسى احمد', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', '', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '8500630362', '8500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', '', '', '', '', '', 1, '2020-01-10 07:54:01'),
 (14, 'Mahesh v', 'سوغو فينكاتا رامانا', '2019-12-06', '2019/12/06', '22', '22', '22', 'عبدالعزيز عيسى احمد', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', '', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '8500630362', '8500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', '', '', '', '', '', 1, '2020-01-10 07:54:04'),
 (15, 'Ravi', 'سوغو فينكاتا رامانا', '2019-12-06', '2019/12/06', '22', '22', '17', 'عبدالعزيز عيسى احمد', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', '', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '8500630362', '8500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', '', '', '', '', '', 1, '2020-01-10 07:54:08'),
-(16, 'Sanker', 'سوغو فينكاتا رامانا', '2019-12-06', '2019/12/06', '22', '22', '18', 'عبدالعزيز عيسى احمد', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', '', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '8500630362', '8500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', '', '', '', '', '', 1, '2020-01-10 07:54:11'),
 (17, 'Durga Rao', 'سوغو فينكاتا رامانا', '2019-12-06', '2019/12/06', '22', '22', '19', 'عبدالعزيز عيسى احمد', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', '', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '8500630362', '8500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', '', '', '', '', '', 1, '2020-01-10 07:54:13'),
-(18, 'Ragu', 'راجو', '2019-12-06', '2019/12/06', '22', '22', '22', '22', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '8500630362', '8500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', 'assets/vaccinationcertificate/Koala.jpg', 'assets/iqamacertificate/Chrysanthemum.jpg', 'assets/passportfile/Tulips.jpg', 'assets/originalcertificates/Desert.jpg', 'assets/photoschilds/Tulips.jpg', 1, '2020-01-10 13:49:11'),
-(19, 'Chaithu', 'سوغو فينكاتا رامانا', '2019-12-18', '2019/12/18', '23', '23', '17', 'عبدالعزيز عيسى احمد', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa', 'عبد العزيز عيسى', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '08187871138', '', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Jellyfish.jpg', 'assets/vaccinationcertificate/Tulips.jpg', '', '', '', '', 1, '2020-01-10 07:54:18'),
-(20, 'Prani', 'باسكار راو سوغو', '2019-12-19', '2019/12/19', '23', '23', '18', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa', 'عبد العزيز عيسى', 'bhaskar', 'بهاسكار', 'India', 'الهند', '500018', '500018', '8500630362', '8500630362', '08187871138', '08187871138', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Chrysanthemum.jpg', 'assets/vaccinationcertificate/Desert.jpg', 'assets/iqamacertificate/Hydrangeas.jpg', 'assets/passportfile/Jellyfish.jpg', 'assets/originalcertificates/Koala.jpg', 'assets/photoschilds/Lighthouse.jpg', 1, '2020-01-10 07:54:20'),
-(21, 'Sastry', 'سوغو فينكاتا رامانا', '2019-12-11', '2019/12/11', '22', '22', '19', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Girl', 'فتاة', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', 'fsdfsdf', 'fsdfsdf', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', 'assets/vaccinationcertificate/Jellyfish.jpg', 'assets/iqamacertificate/Desert.jpg', 'assets/passportfile/Koala.jpg', 'assets/originalcertificates/Hydrangeas.jpg', 'assets/photoschilds/Koala.jpg', 1, '2020-01-10 07:54:22'),
-(22, 'Babu Rao', 'سوغو فينكاتا راماناس', '2019-12-12', '2019/12/12', '22', '22', '22', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Girl', 'فتاة', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa', 'عبد العزيز عيسى', 'Abdulaziz Essa', 'عبد العزيز عيسى', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '08500630362', '08500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Chrysanthemum.jpg', 'assets/vaccinationcertificate/Jellyfish.jpg', 'assets/iqamacertificate/Desert.jpg', 'assets/passportfile/Jellyfish.jpg', 'assets/originalcertificates/Tulips.jpg', 'assets/photoschilds/Jellyfish.jpg', 1, '2020-01-10 12:34:10'),
-(23, 'Bhaskar', 'بهاسكار', '2020-01-16', '2020/01/16', 'ads', 'إعلانات', '17', '17', 'Srikaukalm', 'Srikaukalm', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'fds', 'قوات الدفاع والأمن', 'fdsfsdf', 'fdsfsdf', 'fdsfsdf', 'fdsfsdf', 'fdsfds', 'fdsfds', 'fdsfsdf', 'fdsfsdf', 'fdsfsd', 'fdsfsd', 'fdsfsdf', 'fdsfsdf', 'fsdfds', 'fsdfds', 'fsdfdsf', 'fsdfdsf', 'fdsfsdf', 'fdsfsdf', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', 'assets/vaccinationcertificate/Koala.jpg', 'assets/iqamacertificate/Chrysanthemum.jpg', 'assets/passportfile/Jellyfish.jpg', 'assets/originalcertificates/Chrysanthemum.jpg', 'assets/photoschilds/Hydrangeas.jpg', 1, '2020-01-10 12:39:41');
+(18, 'Ragu', 'راجو', '2019-12-06', '2019/12/06', '22', '22', '22', '22', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '8500630362', '8500630362', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', 'assets/vaccinationcertificate/Koala.jpg', 'assets/iqamacertificate/Chrysanthemum.jpg', 'assets/passportfile/Tulips.jpg', 'assets/originalcertificates/Desert.jpg', 'assets/photoschilds/Tulips.jpg', 1, '2020-01-22 11:28:01'),
+(19, 'Chaithu', 'سوغو فينكاتا رامانا', '2019-12-18', '2019/12/18', '23', '23', '17', 'عبدالعزيز عيسى احمد', 'srikakulam', 'سريكاكولام', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa', 'عبد العزيز عيسى', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', '08187871138', '', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Jellyfish.jpg', 'assets/vaccinationcertificate/Tulips.jpg', '', '', '', '', 0, '2020-01-22 12:44:00'),
+(21, 'Sastry', 'سوغو فينكاتا رامانا', '2019-12-11', '2019/12/11', '22', '22', '19', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Girl', 'فتاة', 'Old Student', 'طالب قديم', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'India', 'الهند', '532409', '532409', '08500630362', '08500630362', 'fsdfsdf', 'fsdfsdf', 'Abdulaziz Essa Ahmed', 'عبدالعزيز عيسى احمد', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', 'assets/vaccinationcertificate/Jellyfish.jpg', 'assets/iqamacertificate/Desert.jpg', 'assets/passportfile/Koala.jpg', 'assets/originalcertificates/Hydrangeas.jpg', 'assets/photoschilds/Koala.jpg', 1, '2020-01-23 12:40:35'),
+(24, 'hdgdf', 'hdgdf', '01/22/2020', '2020/01/22', '8500630362', '8500630362', '19', '19', 'hdgfhdgfh', 'hdgfhdgfh', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'hgfd', 'hgfd', 'hfgd', 'hfgd', 'gfhd', 'gfhd', 'hfgd', 'hfgd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'hgfd', 'Agree', 'يوافق على', 'assets/birthcertificate/Chrysanthemum.jpg', 'assets/vaccinationcertificate/Hydrangeas.jpg', 'assets/iqamacertificate/Desert.jpg', 'assets/passportfile/Koala.jpg', 'assets/originalcertificates/Chrysanthemum.jpg', 'assets/photoschilds/Tulips.jpg', 1, '2020-01-23 12:48:41'),
+(25, 'czx', 'CZX', '01/16/2020', '2020/01/16', '8500630362', '8500630362', '19', '19', 'cxz', 'cxz', 'Boy', 'صبي', 'Old Student', 'طالب قديم', 'cxz', 'cxz', 'cxz', 'cxz', 'cXZ', 'cXZ', 'czX', 'CZX', 'czx', 'CZX', 'cxz', 'cxz', 'cXZ', 'cXZ', 'CXZ', 'CXZ', 'cxz', 'cxz', 'cXZ', 'cXZ', 'Agree', 'يوافق على', 'assets/birthcertificate/Desert.jpg', 'assets/vaccinationcertificate/Koala.jpg', 'assets/iqamacertificate/Chrysanthemum.jpg', 'assets/passportfile/Tulips.jpg', 'assets/originalcertificates/Desert.jpg', 'assets/photoschilds/Koala.jpg', 1, '2020-01-23 12:48:25');
 
 -- --------------------------------------------------------
 
@@ -118,22 +116,8 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`attend_id`, `semister`, `semister_ar`, `present_day`, `class_id`, `student_id`, `subject_id`, `status`, `dateandtime`) VALUES
-(69, 'Semister - 1', 'الفصل الدراسي 1', '1/16/2020', '17', '11', '7', 1, '2020-01-10 14:04:01'),
-(70, 'Semister - 1', 'الفصل الدراسي 1', '1/16/2020', '17', '19', '7', 1, '2020-01-10 14:04:01'),
-(71, 'Semister - 1', 'الفصل الدراسي 1', '1/16/2020', '17', '23', '7', 1, '2020-01-10 14:04:01'),
-(72, 'Semister - 2', 'الفصل الدراسي - 2', '1/10/2020', '18', '12', '7', 1, '2020-01-10 14:04:24'),
-(73, 'Semister - 2', 'الفصل الدراسي - 2', '1/10/2020', '18', '16', '7', 1, '2020-01-10 14:04:24'),
-(74, 'Semister - 2', 'الفصل الدراسي - 2', '1/10/2020', '18', '20', '7', 1, '2020-01-10 14:04:24'),
-(75, 'Semister - 2', 'الفصل الدراسي - 2', '1/31/2020', '17', '11', '3', 1, '2020-01-10 14:48:22'),
-(76, 'Semister - 2', 'الفصل الدراسي - 2', '1/31/2020', '17', '15', '3', 1, '2020-01-10 14:48:22'),
-(77, 'Semister - 2', 'الفصل الدراسي - 2', '1/31/2020', '17', '19', '3', 1, '2020-01-10 14:48:22'),
-(78, 'Semister - 2', 'الفصل الدراسي - 2', '1/31/2020', '17', '23', '3', 1, '2020-01-10 14:48:22'),
-(79, 'Semister - 2', 'الفصل الدراسي - 2', '1/29/2020', '18', '12', '7', 1, '2020-01-10 14:50:12'),
-(80, 'Semister - 2', 'الفصل الدراسي - 2', '1/29/2020', '18', '16', '7', 1, '2020-01-10 14:50:12'),
-(81, 'Semister - 2', 'الفصل الدراسي - 2', '1/29/2020', '18', '20', '7', 1, '2020-01-10 14:50:12'),
-(82, 'Semister - 1', 'الفصل الدراسي 1', '1/24/2020', '17', '11', '6', 1, '2020-01-10 15:05:01'),
-(83, 'Semister - 1', 'الفصل الدراسي 1', '1/24/2020', '17', '15', '6', 1, '2020-01-10 15:05:01'),
-(84, 'Semister - 1', 'الفصل الدراسي 1', '1/24/2020', '17', '19', '6', 1, '2020-01-10 15:05:01');
+(95, 'Semister - 1', 'الفصل الدراسي 1', '01/16/2020', '18', '12', '6', 1, '2020-01-22 13:57:55'),
+(99, 'Semister - 1', 'الفصل الدراسي 1', '01/28/2020', '19', '17', '7', 1, '2020-01-23 13:17:48');
 
 -- --------------------------------------------------------
 
@@ -158,10 +142,10 @@ CREATE TABLE `classes` (
 --
 
 INSERT INTO `classes` (`class_id`, `class_name`, `class_name_ar`, `class_grade`, `class_grade_ar`, `subjects_name`, `subjects_name_ar`, `status`, `dateandtime`) VALUES
-(17, '1st class', '1st صنف', 'A Grade', 'والصف', 'Matchs,Hindi,Science,Social', '', 1, '2019-12-27 03:01:37'),
+(17, '1st class', '1st صنف', 'A Grade', 'والصف', 'Matchs,Hindi,Science,Social', '', 1, '2020-01-24 12:14:35'),
 (18, '1st class', '1st صنف', 'B Grade', 'العلامه ب', 'Matchs,Hindi,Science,Social', '', 1, '2019-12-27 03:06:24'),
 (19, '2nd class', 'الدرجة الثانية', 'B Grade', 'العلامه ب', 'Matchs,Hindi,Science,Social,Telugu', '', 1, '2019-12-31 13:09:36'),
-(22, '2nd class', 'الدرجة الثانية', 'C Grade', 'درجة C', 'Matchs,Social,English', '', 1, '2019-12-31 13:13:44');
+(22, '2nd class', 'الدرجة الثانية', 'C Grade', 'درجة C', 'Matchs,Social,English', '', 1, '2020-01-23 12:32:59');
 
 -- --------------------------------------------------------
 
@@ -268,7 +252,7 @@ INSERT INTO `roles` (`role_id`, `role_name`, `role_name_ar`, `status`, `datetime
 (5, 'Teacher', 'مدرس', 1, '2019-12-17 03:11:59'),
 (6, 'Principal', 'المالك', 1, '2019-12-18 02:14:33'),
 (7, 'Accountant', 'محاسب', 1, '2019-12-18 02:15:34'),
-(8, 'Administration', 'الادارة', 1, '2019-12-18 02:15:46');
+(8, 'Administration', 'الادارة', 1, '2020-01-24 12:16:22');
 
 -- --------------------------------------------------------
 
@@ -361,8 +345,8 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`staff_id`, `f_name`, `f_name_ar`, `l_name`, `l_name_ar`, `emp_code`, `emp_code_ar`, `work_no`, `work_no_ar`, `personal_no`, `personal_no_ar`, `work_email`, `work_email_ar`, `personal_email`, `personal_email_ar`, `gender`, `gender_ar`, `comm_addr`, `comm_addr_ar`, `per_addr`, `per_addr_ar`, `role_in_school`, `role_in_school_ar`, `classes_to_teach`, `classes_to_teach_ar`, `class_teacher_for`, `class_teacher_for_ar`, `subjects`, `subjects_ar`, `currently_working`, `currently_working_ar`, `username`, `username_ar`, `password`, `password_ar`, `profile_img`, `profile_name`, `profile_name_ar`, `device_id`, `device_id_ar`, `device_type`, `device_type_ar`, `fcm_id`, `status`, `date_created`, `date_modified`) VALUES
 (26, 'Suggu', 'Suggu', 'Bhaskara rao', 'بهاسكارا راو', '591114', '591114', 'bhaska', 'بهاسكار', '8500630362', '8500630362', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'Boy', 'صبي', 'hydrabad', 'حيدر أباد', 'erragadda', 'erragadda', 'Teacher', 'المالك', NULL, '', 'bhaskar', 'بهاسكار', 'Telugu,Social,Science,Matchs,Hindi', '', 'Tech Mahindra', 'تك ماهيندرا', 'suggu', 'suggu', '12345', '12345', 'assets/staffimage/Hydrangeas.jpg', 'suggu', 'suggu', '12345', '12345', 'ds', 'س', NULL, 1, '2019-12-27 11:03:09', '2020-01-03 16:21:02'),
-(27, 'SUGGU', 'SUGGU', 'RAMANA', 'رامانا', 'gds', 'نظم التوزيع العالمية', '08500630362', '08500630362', '8500630362', '8500630362', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'Boy', 'صبي', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'Principal', 'المالك', '1st class,1st class,1st,1 class', '', 'ggg', 'GGG', NULL, '', 'gsd', 'GSD', '101143423331', '101143423331', 'suggu', 'suggu', 'assets/staffimage/Hydrangeas.jpg', 'gsg', 'GSG', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'ds', 'س', NULL, 1, '2019-12-27 11:22:33', '2019-12-27 11:22:33'),
-(28, 'Suggu', 'Suggu', 'varma', 'بهاسكارا راو', '591114', '591114', 'bhaska', 'بهاسكار', '8500630362', '8500630362', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'Boy', 'صبي', 'hydrabad', 'حيدر أباد', 'erragadda', 'erragadda', 'Teacher', 'المالك', NULL, '', 'bhaskar', 'بهاسكار', 'Telugu,Social,Science,Matchs,Hindi', '', 'Tech Mahindra', 'تك ماهيندرا', 'suggu', 'suggu', '12345', '12345', 'assets/staffimage/Hydrangeas.jpg', 'suggu', 'suggu', '12345', '12345', 'ds', 'س', NULL, 1, '2019-12-27 11:03:09', '2020-01-03 16:21:02');
+(27, 'SUGGU', 'SUGGU', 'RAMANA', 'رامانا', 'gds', 'نظم التوزيع العالمية', '08500630362', '08500630362', '8500630362', '8500630362', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'Boy', 'صبي', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'VALLABHARAOPETA 1-83\r\nPATHIVADAPALAM', 'Principal', 'المالك', '1st class,1st class,1st,1 class', '', 'ggg', 'GGG', NULL, '', 'gsd', 'GSD', '101143423331', '101143423331', 'suggu', 'suggu', 'assets/staffimage/Hydrangeas.jpg', 'gsg', 'GSG', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'ds', 'س', NULL, 1, '2019-12-27 11:22:33', '2020-01-24 17:38:33'),
+(28, 'Suggu', 'Suggu', 'Rao', 'بهاسكارا راو', '591114', '591114', 'bhaska', 'بهاسكار', '8500630362', '8500630362', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'bhaskarsuggu41@gmail.com', 'Boy', 'صبي', 'hydrabad', 'حيدر أباد', 'erragadda', 'erragadda', 'Teacher', 'المالك', NULL, '', 'bhaskar', 'بهاسكار', 'Telugu,Social,Science,Matchs,Hindi', '', 'Tech Mahindra', 'تك ماهيندرا', 'suggu', 'suggu', '12345', '12345', 'assets/staffimage/Hydrangeas.jpg', 'suggu', 'suggu', '12345', '12345', 'ds', 'س', NULL, 1, '2019-12-27 11:03:09', '2020-01-24 19:26:30');
 
 -- --------------------------------------------------------
 
@@ -388,7 +372,32 @@ INSERT INTO `subjects` (`subject_id`, `subject_name`, `subject_name_ar`, `status
 (5, 'Social', 'اجتماعي', 1, '2019-12-26 15:05:50'),
 (6, 'Science', 'علم', 1, '2019-12-26 15:05:57'),
 (7, 'Hindi', 'الهندية', 1, '2019-12-26 15:06:03'),
-(9, 'matchs', 'matchs', 1, '2019-12-31 13:29:03');
+(9, 'Matchs', 'Matchs', 1, '2020-01-23 12:37:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher_meeting`
+--
+
+CREATE TABLE `teacher_meeting` (
+  `tech_id` int(11) NOT NULL,
+  `teacher_name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `teacher_name_ar` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `meeting_date` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `meeting_date_ar` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `description_ar` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `date_and_time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teacher_meeting`
+--
+
+INSERT INTO `teacher_meeting` (`tech_id`, `teacher_name`, `teacher_name_ar`, `meeting_date`, `meeting_date_ar`, `description`, `description_ar`, `status`, `date_and_time`) VALUES
+(1, '28', '28', '01/20/2020', '2020/01/20', 'hgf dh gfdh', 'hgf dh gfdh', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -420,7 +429,8 @@ CREATE TABLE `teacher_schedual` (
 
 INSERT INTO `teacher_schedual` (`tech_sch_id`, `teacher_name`, `teacher_name_ar`, `schedual_day`, `schedual_day_ar`, `class`, `class_ar`, `subjects`, `subjects_ar`, `to_time`, `to_time_ar`, `from_time`, `from_time_ar`, `status`, `dateandtime`) VALUES
 (27, '26', '26', 'Wednesday', 'الأربعاء', '1st class B Grade', '1st فئة ب الصف', 'Hindi', 'الهندية', '15:04', '15:04', '13:59', '13:59', 1, '2020-01-03 14:02:44'),
-(28, '28', '28', 'Tuesday', 'الثلاثاء', '2nd class C Grade', '2nd فئة C الصف', 'Science', 'علم', '00:59', '00:59', '13:59', '13:59', 1, '2020-01-03 14:13:38');
+(28, '28', '28', 'Tuesday', 'الثلاثاء', '2nd class C Grade', '2nd فئة C الصف', 'Science', 'علم', '00:59', '00:59', '13:59', '13:59', 1, '2020-01-03 14:13:38'),
+(29, '26', '26', 'Thursday', 'الخميس', '1st class A Grade', '1st صنف الصف', 'Hindi', 'الهندية', '04:55', '04:55', '17:55', '17:55', 1, '2020-01-23 11:30:55');
 
 -- --------------------------------------------------------
 
@@ -452,7 +462,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `user_email`, `gender`, `mobile_number`, `user_password`, `date_of_birth`, `desgenation`, `country`, `state`, `city`, `address`, `role_type`, `user_status`, `date_and_time`) VALUES
-(1, 'Suggu ', 'Bhaskara rao', 'bhaskarsuggu41@gmail.com', 'Male', '8500630362', '12345', '21-06-1992', 'Software Developer', 'India', 'Andhrapradesh', 'Vizag', 'My family Homes A block 402 opp Sai Apartments. New Prame Nager Erragadda', 'Super Admin', 1, '2020-01-08 12:43:33');
+(1, 'Suggu', 'Bhaskara', 'bhaskarsuggu41@gmail.com', 'Male', '8500630362', '12345', '21-06-1992', 'Software Developer', 'India', 'Andhrapradesh', 'Vizag', 'My family Homes A block 402 opp Sai Apartments. New Prame Nager Erragadda', 'Super Admin', 1, '2020-01-23 13:28:40');
 
 --
 -- Indexes for dumped tables
@@ -519,6 +529,12 @@ ALTER TABLE `subjects`
   ADD PRIMARY KEY (`subject_id`);
 
 --
+-- Indexes for table `teacher_meeting`
+--
+ALTER TABLE `teacher_meeting`
+  ADD PRIMARY KEY (`tech_id`);
+
+--
 -- Indexes for table `teacher_schedual`
 --
 ALTER TABLE `teacher_schedual`
@@ -544,13 +560,13 @@ ALTER TABLE `admission_users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `attend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `attend_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `classes_assign`
@@ -574,7 +590,7 @@ ALTER TABLE `fee_transaction`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `school_schedual`
@@ -586,19 +602,25 @@ ALTER TABLE `school_schedual`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `teacher_meeting`
+--
+ALTER TABLE `teacher_meeting`
+  MODIFY `tech_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `teacher_schedual`
 --
 ALTER TABLE `teacher_schedual`
-  MODIFY `tech_sch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `tech_sch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users`

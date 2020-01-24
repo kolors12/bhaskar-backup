@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 	
-	class Classes_model extends CI_Model {
+	class Teacher_meeting_model extends CI_Model {
 	
-	   public function get_subject()
+	 
+		public function get_teachers()
 		{
-			$this->db->order_by('subject_id', 'Desc');
-			$this->db->where('status',1);
-			$query_result=$this->db->get('subjects');
-			$result = $query_result->result_array();
+		    $query=$this->db->where(array('role_in_school' =>'Teacher'))->get('staff');
+			$result = $query->result_array();
 			return $result;
 		}
 		
@@ -32,9 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 
 		}
-		public  function insert_class($data)
+		public  function insert_teacher_meeting($data)
 		{
-			$this->db->insert('classes', $data);
+			$this->db->insert('teacher_meeting', $data);
 			return true;
 		}
 		public function edit_classes($id)
