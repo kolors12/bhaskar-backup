@@ -65,15 +65,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result == '1')
 			{
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Successfully Added Teacher Schedual');
+			   $this->session->set_flashdata('message1','Successfully Added Teacher Schedual');
 			   redirect('teacher_schedual/teacher_schedual_view');
 			} else if ($result == '2') {
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Please cheeck Timeings');
+			   $this->session->set_flashdata('message3','Please cheeck Timeings');
 			   redirect('teacher_schedual/teacher_schedual_view');
 			} else {
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Please The cheeck the data');
+				$this->session->set_flashdata('message3','Please The cheeck the data');
 				redirect('teacher_schedual/teacher_schedual_view');
 			}
 
@@ -140,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Teacher Schedual Successfully Deleted ');
+			$this->session->set_flashdata('message3','Teacher Schedual Successfully Deleted ');
 			redirect('teacher_schedual/teacher_schedual_view');
 		} else {
 			$this->load->helper('url');
@@ -182,15 +182,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == '1')
 			{
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message',' Successfully Updated Teacher Schedual');
+			   $this->session->set_flashdata('message2',' Successfully Updated Teacher Schedual');
 			   redirect('teacher_schedual/teacher_schedual_view');
 			} else if ($result == '2') {
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Please cheeck Timeings');
+			   $this->session->set_flashdata('message3','Please cheeck Timeings');
 			   redirect('teacher_schedual/teacher_schedual_view');
 			} else {
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Please The cheeck the data');
+				$this->session->set_flashdata('message3','Please The cheeck the data');
 				redirect('teacher_schedual/teacher_schedual_view');
 			}
 		

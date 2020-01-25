@@ -97,35 +97,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return true;
 		}
 
-		function count_all($class_id)
+		function count_all($class_id,$subjects_id,$date2)
 		{
-			$query = $this->make_query($class_id);
+			$query = $this->make_query($class_id,$subjects_id,$date2);
 			$data = $this->db->query($query);
 			return $data->num_rows();
 		}
 	
-		function make_query($class_id)
+		function make_query($class_id,$subjects_id,$date2)
 		{
 			$query = "
-			SELECT * FROM attendance as at
-			left join classes as c ON c.class_id = at.class_id
-			left join admission_users as au ON au.adm_id = at.student_id
-			left join subjects as su ON su.subject_id = at.subject_id
-			WHERE at.status IN (0,1)  
+			SELECT * FROM attendance as att
+			left join classes as c ON c.class_id = att.class_id
+			left join admission_users as au ON au.adm_id = att.student_id
+			left join subjects as su ON su.subject_id = att.subject_id
+			WHERE att.status IN (0,1)  
 			";
 			if(isset($class_id) && $class_id != "")
 			{
-			$query .= "AND at.class_id LIKE '%$class_id%'";
+			$query .= "AND att.class_id LIKE '%$class_id%'";
 			}
-			$query .= "ORDER BY at.attend_id DESC";
+			if(isset($subjects_id) && $subjects_id != "")
+			{
+			$query .= " AND att.subject_id LIKE '%$subjects_id%'";
+			}
+			if(isset($date2) && $date2 != "")
+			{
+			$query .= " AND att.present_day LIKE '%$date2%'";
+			}
+			$query .= "ORDER BY att.attend_id DESC";
 			return $query;
 		}
 
 		
-		function fetch_data($limit, $start, $class_id)
+		function fetch_data($limit, $start, $class_id,$subjects_id,$date2)
 		{
 			$siteLang=$this->session->userdata('site_lang');
-			$query = $this->make_query($class_id);
+			$query = $this->make_query($class_id,$subjects_id,$date2);
 
 			$query .= ' LIMIT '.$start.', ' . $limit;
 
@@ -146,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$class_grade	 =	$row['class_grade_ar'];
 						$student_name	 =	$row['student_name_ar'];
 						$present_day	 =	$row['present_day'];
-						$subject_name	     =	$row['subject_name_ar'];
+						$subject_name	 =	$row['subject_name_ar'];
 						
 					   }else{
 
@@ -156,14 +164,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$subjects 		=	$row['subjects'];
 						$student_name   =	$row['student_name'];
 						$present_day 	=	$row['present_day'];
-						$subject_name 		=	$row['subject_name'];
+						$subject_name 	=	$row['subject_name'];
 					   }
 					
 					   $output .= '
 					   <tr>
 						<td>'.$i.'</td>
 						<td><strong>'.  $semister.'</strong></td>
-						<td><a href="'.base_url().'classes_assign/view_students/'.$row['class_id'].'">'. $class_name.'</a></td>
+						<td><strong>'.  $class_name.'</strong></td>
 						<td><strong>'.  $class_grade.'</strong></td>
 						<td><strong>'.  $subject_name .'</strong></td>
 						<td><strong>'.  $present_day .'</strong></td>
@@ -187,3 +195,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $output;
 		}
 }
+///<td><a href="'.base_url().'classes_assign/view_students/'.$row['class_id'].'">'. $class_name.'</a></td>///

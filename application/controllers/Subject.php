@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result == 'true')
 			{
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Subject Successfully Added ');
+				$this->session->set_flashdata('message1','Subject Successfully Added ');
 				redirect('subject/subject');
 			} else {
 				$this->load->helper('url');
@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Subject Status Successfully Updated ');
+			$this->session->set_flashdata('message1','Subject Status Successfully Updated ');
 			redirect('subject/subject');
 		} else {
 			$this->load->helper('url');
@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Subject Successfully Deleted ');
+			$this->session->set_flashdata('message3','Subject Successfully Deleted ');
 			redirect('subject/subject');
 		} else {
 			$this->load->helper('url');
@@ -153,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Subject Successfully Updated ');
+			$this->session->set_flashdata('message2','Subject Successfully Updated ');
 			redirect('subject/subject');
 		} else {
 			$this->load->helper('url');

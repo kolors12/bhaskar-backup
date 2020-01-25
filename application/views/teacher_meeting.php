@@ -1,11 +1,5 @@
 <!doctype html>
 <html lang="en">
-<script>
-$(document).ready(function(){
-$("#form").validate({
-});
-});
-</script>
 <?php $this->load->view('head');?>
 
 <style>
@@ -149,7 +143,7 @@ $("#form").validate({
             <div class="block-header">
                 <div class="row clearfix">
                     <div class="col-md-6 col-sm-12">
-                        <h1><?php  echo $this->lang->line('Classes'); ?></h1>
+                        <h1>Teacher Meeting</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                             <!--li class="breadcrumb-item"><a href="#">Oculux</a></li>
@@ -167,8 +161,8 @@ $("#form").validate({
                 <div class="col-lg-12">
                     <div class="card">
                         <ul class="nav nav-tabs">
-                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Users"><?php  echo $this->lang->line('List_of_Classes'); ?></a></li>
-                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#addUser"><?php  echo $this->lang->line('Add_Class'); ?></a></li>        
+                            <li class="nav-item"><a class="nav-link active show" data-toggle="tab" href="#Users">List of Teacher Meeting's</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#addUser">Add Teacher Meeting</a></li>        
                         </ul>
                         <div id="loading">
                         </div>
@@ -214,36 +208,31 @@ $("#form").validate({
                             </div>
                             <div class="tab-pane" id="addUser">
                                 <div class="body mt-2">
-								<h5><?php  echo $this->lang->line('Add_Class'); ?></h5>
-								<form   class="form-horizontal" id="form" action="<?php echo base_url('classes/insert_class')?>"  method="post">
+								<h5>Add Teacher Meeting</h5>
+								<form   class="form-horizontal" id="form" action="<?php echo base_url('teacher_meeting/insert_teacher_meeting')?>"  method="post">
                                     <div class="row clearfix">
 									
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="form-group">
-                                                <input type="text" name="class_name"  class="form-control " placeholder="<?php  echo $this->lang->line('Classes_Name'); ?>" required>
-											</div>
-                                        </div>
-                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="form-group">
-                                                <input type="text" name="class_grade"  class="form-control " placeholder="<?php  echo $this->lang->line('Grade_Name'); ?>" required>
-											</div>
-                                        </div>
-                                       
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                      <div class="col-lg-6 col-md-6 col-sm-12">
                                           <div class="form-group">
-                                            <select class="selectpicker form-control show-tick" name="subjects_name[]" multiple data-live-search="true" required>
-                                            <option value="">Select Subject</option>
-                                            <?php foreach ($subject as $row) {?>
-                                            <option value="<?php echo $row['subject_name'];?>"><?php echo $row['subject_name'];?></option>
+                                            <select class="form-control show-tick" name="teacher_name"  required>
+                                            <option value="">Select Teacher</option>
+                                            <?php foreach ($teachers as $row) {?>
+                                            <option value="<?php echo $row['staff_id'];?>"><?php echo $row['f_name'];?> <?php echo $row['l_name'];?></option>
                                             <?php }?>
                                             </select>
                                          </div>
                                         </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                                <input type="text" name="meeting_date"  id="date2" class="form-control" placeholder="Select Date" required>
+											</div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                             <textarea type="text" name="description"  class="form-control " placeholder="Description" required></textarea>
+										</div>
 
-                                        
-                                       
                                         <div class="col-12">
-                                            
                                             <button type="submit"  name="Submit" value="Submit" class="btn btn-primary">Submit</button>
                                             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Reset</button>
                                         </div>
@@ -269,6 +258,8 @@ $("#form").validate({
 
 <script>
     $(document).ready(function(){
+         ////Date Picker//
+         $( "#date2" ).datepicker();
         //multi Search///
         $('Subject').selectpicker();
 

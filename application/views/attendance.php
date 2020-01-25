@@ -155,7 +155,8 @@
                    
                 </div>
             </div>
-			<h6 ><p class="text-success col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message'); ?></p></h6>
+            <h6 ><p class="text-success col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message'); ?></p></h6>
+            <h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message2'); ?></p></h6>
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
@@ -170,21 +171,32 @@
 							   
                                 <div class="search-fields" >
 								<div class="row clearfix">
-                                    <div class="col-lg-5 col-md-5 col-sm-12">
-									<div class="form-group" style="margin-top:20px;">
-                                   
-									 <select class="form-control show-tick" id="class_id" name="class_id" style="background-color: #fff; border-color: #fff;" required>
-                                    <option value=""><?php  echo $this->lang->line('Select_Class'); ?></option>
-                                    <?php foreach ($class as $row) {?>
-                                    <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
-                                    <?php }?>
-                                    </select>
-									</div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="form-group" style="margin-top:20px;">
+                                        <select class="form-control show-tick" id="class_id" name="class_id" style="background-color: #fff; border-color: #fff;" required>
+                                        <option value=""><?php  echo $this->lang->line('Select_Class'); ?></option>
+                                        <?php foreach ($class as $row) {?>
+                                        <option value="<?php echo $row['class_id'];?>"><?php echo $row['class_name'];?> <?php echo $row['class_grade'];?></option>
+                                        <?php }?>
+                                        </select>
+                                        </div>
                                     </div>
-                                    
-								   
-                                    
-									<div class="col-lg-2 col-md-2 col-sm-12" style="margin-top:20px;">
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="form-group" style="margin-top:20px;">
+                                        <select class="form-control show-tick"  id="subjects_id" style="background-color: #fff; border-color: #fff;" required>
+                                        <option value="">Select Subject</option>
+                                        <?php foreach ($subject as $row) {?>
+                                        <option value="<?php echo $row['subject_id'];?>"><?php echo $row['subject_name'];?></option>
+                                        <?php }?>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                        <div class="form-group" style="margin-top:20px;">
+                                        <input type="text" class=" form-control" name="date2" id = "date2" placeholder="Select Date" style="background-color: #fff; border-color: #fff;" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-12" style="margin-top:20px;">
                                     <button id="search" class="btn btn-success"><?php  echo $this->lang->line('Search'); ?></button>
 									</div>
                                 </div>
@@ -238,7 +250,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                           <div class="form-group">
-                                            <input type="text" class=" form-control" name="present_day" id="datepicker" placeholder="Select Date" required>
+                                            <input type="text" class=" form-control" name="present_day" id = "datepicker-12" placeholder="Select Date" required>
                                          </div>
                                         </div>
                                         
@@ -286,12 +298,13 @@
 	color: red;
 }
 </style>
+ 
 <script>
     $(document).ready(function(){
         ////Date Picker//
-         ej.base.enableRipple(true);
-         var datepicker = new ej.calendars.DatePicker();
-         datepicker.appendTo('#datepicker');
+        $( "#date2" ).datepicker();
+        //$( "#datepicker-12" ).datepicker();
+        //$( "#datepicker-12" ).datepicker("setDate", "10w+1");
        ///validation///
         $("#form").validate({
         });
@@ -302,14 +315,18 @@
         });
         function filter_data(page)
         {
+           
             $('#loading').show();
             var action = 'fetch_data';
             var class_id = $('#class_id').val();
+            var subjects_id = $('#subjects_id').val();
+            var date2 = $('#date2').val();
+            
             $.ajax({
                 url:"<?php echo base_url(); ?>attendance/fetch_data/"+page,
                 method:"POST",
                 dataType:"JSON",
-                data:{action:action, class_id:class_id},
+                data:{action:action, class_id:class_id,subjects_id:subjects_id,date2:date2},
                 success:function(data)
                 {
                     $('tbody').html(data.admissions_list);
@@ -352,7 +369,6 @@ function ConfirmDelete()
 </script>
 
 <?php $this->load->view('footer');?>
-
 
 
 

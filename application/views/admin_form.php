@@ -155,7 +155,9 @@
                    
                 </div>
             </div>
-			<h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message'); ?></p></h6>
+            <h6 ><p class="text-success col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message1'); ?></p></h6>
+            <h6 ><p class="text-warning col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message2'); ?></p></h6>
+			<h6 ><p class="text-danger col-sm-12 text-success text-center" ><?php echo $this->session->flashdata('message3'); ?></p></h6>
             <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
@@ -227,7 +229,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                <input type="text" id="datepicker" name="date_of_birth" class="form-control" placeholder="<?php  echo $this->lang->line('Date_of_Birth');?>" required>
+                                                <input type="text" id ="datepicker-12" name="date_of_birth" class="form-control" placeholder="<?php  echo $this->lang->line('Date_of_Birth');?>" required>
                                             </div>
                                         </div>
             
@@ -396,9 +398,7 @@
 <script>
     $(document).ready(function(){
         ////Date Picker//
-         ej.base.enableRipple(true);
-         var datepicker = new ej.calendars.DatePicker();
-         datepicker.appendTo('#datepicker');
+        $( "#datepicker-12" ).datepicker();
         ///validation///
          $("#form").validate({
          });

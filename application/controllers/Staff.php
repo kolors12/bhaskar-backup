@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if($result == 'true')
 			{
 				$this->load->helper('url');
-				$this->session->set_flashdata('message','Teacher Successfully Added ');
+				$this->session->set_flashdata('message1','Teacher Successfully Added ');
 				redirect('staff/staff');
 			} else {
 			    $this->load->helper('url');
@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Teacher Status Successfully Updated ');
+			$this->session->set_flashdata('message1','Teacher Status Successfully Updated ');
 			redirect('staff/staff');
 		} else {
 			$this->load->helper('url');
@@ -198,7 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Teacher Successfully Deleted ');
+			$this->session->set_flashdata('message3','Teacher Successfully Deleted ');
 			redirect('staff/staff');
 		} else {
 			$this->load->helper('url');
@@ -293,7 +293,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Teacher Successfully Updated ');
+			$this->session->set_flashdata('message2','Teacher Successfully Updated ');
 			redirect('staff/staff');
 		} else {
 			$this->load->helper('url');

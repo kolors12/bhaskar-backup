@@ -2,16 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
           require_once('googleTranslate.class.php');
 		  
-          class Role extends CI_Controller {
+          class Teacher_meeting extends CI_Controller {
 		  public function __construct() {
 		  parent::__construct();
 		  error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		  $this->load->library('session');
 		  $this->load->helper('url');
-		  $this->load->model('Role_model');
+		  $this->load->model('Teacher_meeting_model');
 		  $this->load->library("form_validation");
 		  $siteLang=$this->session->userdata('site_lang');
-		  //print_r($siteLang);
 			if(!empty($siteLang))
 			{
 			$lan=$siteLang;
@@ -28,48 +27,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	      }
 	
 	
-	public function role()
+	public function teacher_meeting_view()
 	{
 		$gt = new GoogleTranslate();	
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-        $this->load->view('role',$data);
+		$data['teachers'] = $this->Teacher_meeting_model->get_teachers();
+        $this->load->view('teacher_meeting',$data);
 		
 	}
 
-	public function insert_role(){
-		
-			$gt = new GoogleTranslate();
-			$data['role_name'] = $this->input->post('role_name');
+	public function insert_teacher_meeting()
+	 {
+		      $gt = new GoogleTranslate();
+			  $data['teacher_name'] = $this->input->post('teacher_name');
+			  $data['meeting_date'] = $this->input->post('meeting_date');
+			  $data['description'] = $this->input->post('description');
+			
 			
 			/*Translate String*/
-			$data['role_name_ar']=$gt->translate("en","ar",$this->input->post('role_name'));
+			   $data['teacher_name_ar']=$gt->translate("en","ar",$this->input->post('teacher_name'));
+			   $data['meeting_date_ar']=$gt->translate("en","ar",$this->input->post('meeting_date'));
+			   $data['description_ar']=$gt->translate("en","ar",$this->input->post('description'));
+			   
 			/**/
-			$result = $this->Role_model->insert_role($data);
+			$result = $this->Teacher_meeting_model->insert_teacher_meeting($data);
 			if($result == 'true')
 			{
 				$this->load->helper('url');
-				$this->session->set_flashdata('message1','Role Successfully Added ');
-				redirect('role/role');
+				$this->session->set_flashdata('message1','Teacher Meeting Successfully Added ');
+				redirect('teacher_meeting/teacher_meeting_view');
 			} else {
 			    $this->load->helper('url');
-				redirect('role/role');
+				redirect('teacher_meeting/teacher_meeting_view');
 			}
+			
 	     
-	   }
+	  }
 
 	function fetch_data()
 	{
-		/* ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL) */;
+		//  ini_set('display_errors', 1);
+		// ini_set('display_startup_errors', 1);
+		// error_reporting(E_ALL);
 
 		sleep(1);
-		$role_name = $this->input->post('role_name');
+		$class_name = $this->input->post('class_name');
+		$class_grade = $this->input->post('class_grade');
 		$this->load->library('pagination');
 		$config = array();
 		$config['base_url'] = '#';
-		$config['total_rows'] = $this->Role_model->count_all($role_name);
+		$config['total_rows'] = $this->Classes_model->count_all($class_name,$class_grade);
 		$config['per_page'] = 8;
 		$config['uri_segment'] = 3;
 		$config['use_page_numbers'] = TRUE;
@@ -95,72 +103,76 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$start = ($page - 1) * $config['per_page'];
 		$output = array(
 		'pagination_link'  => $this->pagination->create_links(),
-		'admissions_list'   => $this->Role_model->fetch_data($config["per_page"], $start, $role_name)
+		'admissions_list'   => $this->Classes_model->fetch_data($config["per_page"], $start, $class_name,$class_grade)
 		);
 		echo json_encode($output);
 	}
 	
 
-	function role_status($id,$value)
+	function class_status($id,$value)
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$result = $this->Role_model->role_status($id,$value);
+		$result = $this->Classes_model->class_status($id,$value);
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message1','Role Status Successfully Updated ');
-			redirect('role/role');
+			$this->session->set_flashdata('message1','Class Status Successfully Updated ');
+			redirect('classes/class_view');
 		} else {
 			$this->load->helper('url');
-			redirect('role/role');
+			redirect('classes/class_view');
 		}
 		
 	}
 	
-	function delete_role($id)
+	function delete_classes($id)
 	{
-	  $result = $this->Role_model->delete_role($id);
+	  $result = $this->Classes_model->delete_classes($id);
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message3','Role Successfully Deleted ');
-			redirect('role/role');
+			$this->session->set_flashdata('message3','Class Successfully Deleted');
+			redirect('classes/class_view');
 		} else {
 			$this->load->helper('url');
-			redirect('role/role');
+			redirect('classes/class_view');
 		}
-	
+	  
 	}
 	
-	public function edit_role($id)
+	public function edit_classes($id)
 	{
 	  $sess_data = $this->session->all_userdata();
 	  if($sess_data['user_id'] == '' ){redirect('login/login');}
-	  $data['admission_view_edit'] = $this->Role_model->edit_role($id);
-	  $this->load->view('edit_role',$data);
+	  $data['classes_edit'] = $this->Classes_model->edit_classes($id);
+	  $this->load->view('edit_classes',$data);
 		
 	}
-	public function update_role()
+	public function update_class()
     {
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
 		$gt = new GoogleTranslate();
 		$id = $this->input->post('id');
-		$data['role_name'] = $this->input->post('role_name');
+		$data['class_name'] = $this->input->post('class_name');
+		$data['class_grade'] = $this->input->post('class_grade');
+		$data['subjects_name'] = $this->input->post('subjects_name');
 		/*Translate String*/
-		$data['role_name_ar']=$gt->translate("en","ar",$this->input->post('role_name'));
-		$result = $this->Role_model->update_Role($id,$data);
-		
+		$data['class_name_ar']=$gt->translate("en","ar",$this->input->post('class_name'));
+		$data['class_grade_ar']=$gt->translate("en","ar",$this->input->post('class_grade'));
+		$data['subjects_name_ar']=$gt->translate("en","ar",$this->input->post('subjects_name'));
+		$result = $this->Classes_model->update_class($id,$data);
 		if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message2','Role Successfully Updated');
-			redirect('role/role');
+			$this->session->set_flashdata('message2','Class Successfully Updated');
+			redirect('classes/class_view');
 		} else {
 			$this->load->helper('url');
-			redirect('role/role');
+			redirect('classes/class_view');
 		}
+		
     }
 	
 	

@@ -32,8 +32,16 @@
 					<li><a href="<?php echo base_url('school_schedual/school_schedual_view');?>"> <i class="fa fa-handshake-o" aria-hidden="true"></i><span><?php  echo $this->lang->line('Schools_Schedual'); ?></a></li>
 					<li><a href="<?php echo base_url('class_schedual/class_schedual_view');?>"> <i class="fa fa-caret-square-o-up" aria-hidden="true"></i>
                     <span><?php  echo $this->lang->line('Class_Schedual'); ?></a></li>
+<<<<<<< HEAD
                     <!--li><a href="<?php //echo base_url('Classes_assign/class_assign_view');?>"><i class="icon-users"></i><span></span>Students Assign Class</a></li-->
                     <li><a href="<?php echo base_url('Attendance/attendance_view');?>"><i class="icon-equalizer"></i><span>Attendance</span></a></li>
+=======
+                    <!-- <li><a href="<?php //echo base_url('Classes_assign/class_assign_view');?>"><i class="icon-users"></i><span></span>Students Assign Class</a></li> -->
+                    <li><a href="<?php echo base_url('attendance/attendance_view');?>"><i class="icon-equalizer"></i><span>Attendance</span></a></li>
+                    <li><a href="<?php echo base_url('teacher_meeting/teacher_meeting_view');?>"><i class="fa fa-bullhorn" aria-hidden="true"></i><span>Teacher Meeting</span></a></li>
+                    <li><a href="<?php echo base_url('Attendance/attendance_view');?>"><i class="fa fa-blind" aria-hidden="true"></i><span>Student Meeting</span></a></li>
+                    <li><a href="<?php echo base_url('Attendance/attendance_view');?>"><i class="fa fa-users" aria-hidden="true"></i></i><span>Parent's Meeting</span></a></li>
+>>>>>>> 9a0c1f167d87d45893b95981010466db41c498df
                     <!--li><a href="holidays.html"><i class="icon-flag"></i><span>Holidays</span></a></li>
                     <li><a href="events.html"><i class="icon-calendar"></i><span>Events</span></a></li>
                     <li><a href="payroll.html"><i class="icon-credit-card"></i><span>Payroll</span></a></li>
@@ -41,13 +49,14 @@
                     <li><a href="report.html"><i class="icon-bar-chart"></i><span>Report</span></a></li-->
 					
                 </ul>
+                
 				<a href="#sanctions" aria-expanded="false" data-toggle="collapse" > <span><?php  echo $this->lang->line('Settings'); ?></span></a>
                 <ul id="sanctions" class="collapse list-unstyled metismenu ">
 				<li><a href="<?php echo base_url('role/role');?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span><?php  echo $this->lang->line('Roles'); ?></span></a></li>
 				<li><a href="<?php echo base_url('classes/class_view');?>"><i class="fa fa-cubes" aria-hidden="true"></i><span><?php  echo $this->lang->line('Classes'); ?></span></a></li>
 				<li><a href="<?php echo base_url('subject/subject');?>"><i class="fa fa-desktop" aria-hidden="true"></i><span><?php  echo $this->lang->line('Subjects'); ?></span></a></li>
                </ul>
-            
+              
             </nav>     
         </div>
     </div>

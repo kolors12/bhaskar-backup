@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	   public function get_subject()
 		{
 			$this->db->order_by('subject_id', 'Desc');
+			$this->db->where('status',1);
 			$query_result=$this->db->get('subjects');
 			$result = $query_result->result_array();
 			return $result;
@@ -13,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function get_classes()
 		{
 			$this->db->order_by('class_id', 'Desc');
+			$this->db->where('status',1);
 			$query_result=$this->db->get('classes');
 			$result = $query_result->result_array();
 			return $result;

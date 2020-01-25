@@ -82,10 +82,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		sleep(1);
 		$class_id = $this->input->post('class_id');
+		$subjects_id = $this->input->post('subjects_id');
+		$date2 = $this->input->post('date2');
 		$this->load->library('pagination');
 		$config = array();
 		$config['base_url'] = '#';
-		$config['total_rows'] = $this->Attendance_model->count_all($class_id);
+		$config['total_rows'] = $this->Attendance_model->count_all($class_id,$subjects_id,$date2);
 		$config['per_page'] = 9;
 		$config['uri_segment'] = 3;
 		$config['use_page_numbers'] = TRUE;
@@ -111,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$start = ($page - 1) * $config['per_page'];
 		$output = array(
 		'pagination_link'  => $this->pagination->create_links(),
-		'admissions_list'   => $this->Attendance_model->fetch_data($config["per_page"], $start, $class_id)
+		'admissions_list'   => $this->Attendance_model->fetch_data($config["per_page"], $start, $class_id,$subjects_id,$date2)
 		);
 		echo json_encode($output);
 	}
@@ -123,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  if($result == 'true')
 		{
 			$this->load->helper('url');
-			$this->session->set_flashdata('message','Student Attendance Successfully Deleted');
+			$this->session->set_flashdata('message2','Student Attendance Successfully Deleted');
 			redirect('attendance/attendance_view');
 		} else {
 			$this->load->helper('url');
