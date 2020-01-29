@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/jvectormap/jquery-jvectormap-2.0.3.css">
 
 <!-- MAIN CSS -->
+
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/site.min.css">
 
 

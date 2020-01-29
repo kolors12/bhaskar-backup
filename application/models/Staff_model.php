@@ -122,22 +122,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  $emp_code   =	$row['emp_code_ar'];
 					  $work_no    =	$row['work_no_ar'];
 					  $work_email =	$row['work_email_ar'];
+					  $role_in_school =	$row['role_in_school_ar'];
 					}else{
 					  $f_name      =	$row['f_name'];
 					  $emp_code    =    $row['emp_code'];
 					  $work_no     =	$row['work_no'];
 					  $work_email  =	$row['work_email'];
+					  $role_in_school  =	$row['role_in_school'];
+					  $profile_img  =	$row['profile_img'];
 					}
 
 					$output .= '
+					
 					<tr>
 						<td>'.$i.'</td>
-						<td>'. $f_name.'</td>
+						<td>
+							<div class="d-flex align-items-center">
+								<img src="'.base_url().$profile_img.'" data-toggle="tooltip" data-placement="top" title="Avatar Name" alt="Avatar" class="w35 h35 rounded">
+								<div class="ml-3">
+									<a href="javascript:void(0);" title="">'. $f_name.'</a>
+									<p class="mb-0">'. $work_email.'</p>
+								</div>
+							</div>
+						</td>
 						<td>'. $emp_code.'</td>
 						<td>'. $work_no.'</td>
-						<td>'. $work_email.'</td>
-
+						<td>'. $role_in_school.'</td>
 						<td>
+
+						
 						
 						<a href="'.base_url().'staff/view_staff_details/'.$row['staff_id'].'"><button type="button" class="btn btn-xs btn-primary" data-toggle="tooltip" data-placement="top" data-original-title="Delete">View Details</button></a>
 						</td>
@@ -153,6 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$output .= '
 						</td>
 						<td>';
+
 						if ($row['status'] == '1') { 
 							$output .= '<a  Onclick="return Inactive();" href="'.base_url().'staff/staff_status/'.$row['staff_id'].'/0'.'" data-toggle="tooltip" title="Inactive" class="btn btn-sm btn-primary changestatus"><span  class="fa fa-ban" title="Inactive"></span></a>';
 						 } else { 
@@ -160,7 +174,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						 } 
 						$output .= '<a href="'.base_url().'staff/edit_staff/'.$row['staff_id'].'"><button type="button" class="btn btn-info btn-sm removebtn" data-toggle="tooltip" data-placement="top" data-original-title="Edit"><i class="fa fa-check-square-o"></i></button></a>
 
-						<a Onclick="return ConfirmDelete();" href="'.base_url().'staff/delete_status/'.$row['staff_id'].'"><button type="button" class="btn btn-danger btn-sm removebtn" data-toggle="tooltip" data-placement="top" data-original-title="Delete"><i class="fa fa-trash-o"></i></button></a>
+						<a Onclick="return ConfirmDelete();" href="'.base_url().'staff/delete_status/'.$row['staff_id'].'"><button type="button" class="btn btn-sm btn-default" title="Delete" data-toggle="tooltip" data-placement="top"><i class="icon-trash text-danger"></i></button></a>
 					</td>
 					</tr>
 					';

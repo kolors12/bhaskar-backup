@@ -2,7 +2,18 @@
 <html lang="en">
 
 <?php $this->load->view('head');?>
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/site.min.css">
 <style>
+  
+
+     
+.nav.nav-tabs .nav-item .nav-link {
+    
+    background-color: rgb(0, 188, 210);
+    transition: all 0.3s ease-in-out 0s;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+ }
 .pagination li a{
     position: relative;
     display: block;
@@ -193,11 +204,12 @@
                                     <table class="table table-hover table-custom spacing8">
                                         <thead>
                                             <tr>
-											    <th><?php  echo $this->lang->line('S_no'); ?></th>
+                                                <th><?php  echo $this->lang->line('S_no'); ?></th>
+                                                
                                                 <th><?php  echo $this->lang->line('Teacher_Name');?></th>
                                                 <th><?php  echo $this->lang->line('Employe_Code');?></th>
                                                 <th><?php  echo $this->lang->line('Work_Number');?></th>
-                                                <th><?php  echo $this->lang->line('Work_Email');?></th>
+                                                <th><?php  echo $this->lang->line('Role_Name');?></th>
 												<th><?php  echo $this->lang->line('View_Details');?></th>
 												<th><?php  echo $this->lang->line('Teacher_Status');?></th>
                                                 <th><?php  echo $this->lang->line('Action'); ?></th>

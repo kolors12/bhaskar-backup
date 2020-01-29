@@ -64,7 +64,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 	     
 	  }
-
+	  public function pay()
+	  {
+		 $this->load->view('rao', $data);
+	  }
 	function fetch_data()
 	{
 		//  ini_set('display_errors', 1);
