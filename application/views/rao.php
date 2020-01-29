@@ -1,25 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-<title>Oculux HR | Payroll</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<meta name="description" content="Oculux Bootstrap 4x admin is super flexible, powerful, clean &amp; modern responsive admin dashboard with unlimited possibilities.">
-<meta name="keywords" content="admin template, Oculux admin template, dashboard template, flat admin template, responsive admin template, web app, Light Dark version">
-<meta name="author" content="GetBootstrap, design by: puffintheme.com">
-
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- VENDOR CSS -->
-<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/animate-css/vivify.min.css">
-
-<!-- MAIN CSS -->
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/site.min.css">
-
-</head>
+<?php $this->load->view('head');?>
 <body class="theme-cyan font-montserrat light_version">
 
 <!-- Page Loader -->
@@ -129,266 +111,11 @@
 
 <div id="wrapper">
 
-    <nav class="navbar top-navbar">
-        <div class="container-fluid">
+     <?php $this->load->view('header');?>
 
-            <div class="navbar-left">
-                <div class="navbar-btn">
-                    <a href="index.html"><img src="<?php echo base_url();?>assets/images/icon.svg" alt="Oculux Logo" class="img-fluid logo"></a>
-                    <button type="button" class="btn-toggle-offcanvas"><i class="lnr lnr-menu fa fa-bars"></i></button>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                            <i class="icon-envelope"></i>
-                            <span class="notification-dot bg-green">4</span>
-                        </a>
-                        <ul class="dropdown-menu right_chat email vivify fadeIn">
-                            <li class="header green">You have 4 New eMail</li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="media">
-                                        <div class="avtar-pic w35 bg-red"><span>FC</span></div>
-                                        <div class="media-body">
-                                            <span class="name">James Wert <small class="float-right text-muted">Just now</small></span>
-                                            <span class="message">Update GitHub</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="media">
-                                        <div class="avtar-pic w35 bg-indigo"><span>FC</span></div>
-                                        <div class="media-body">
-                                            <span class="name">Folisise Chosielie <small class="float-right text-muted">12min ago</small></span>
-                                            <span class="message">New Messages</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="media">
-                                        <img class="media-object " src="<?php echo base_url();?>assets/images/xs/avatar5.jpg" alt="">
-                                        <div class="media-body">
-                                            <span class="name">Louis Henry <small class="float-right text-muted">38min ago</small></span>
-                                            <span class="message">Design bug fix</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="media mb-0">
-                                        <img class="media-object " src="<?php echo base_url();?>assets/images/xs/avatar2.jpg" alt="">
-                                        <div class="media-body">
-                                            <span class="name">Debra Stewart <small class="float-right text-muted">2hr ago</small></span>
-                                            <span class="message">Fix Bug</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                            <i class="icon-bell"></i>
-                            <span class="notification-dot bg-azura">4</span>
-                        </a>
-                        <ul class="dropdown-menu feeds_widget vivify fadeIn">
-                            <li class="header blue">You have 4 New Notifications</li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="feeds-left bg-red"><i class="fa fa-check"></i></div>
-                                    <div class="feeds-body">
-                                        <h4 class="title text-danger">Issue Fixed <small class="float-right text-muted">9:10 AM</small></h4>
-                                        <small>WE have fix all Design bug with Responsive</small>
-                                    </div>
-                                </a>
-                            </li>                               
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="feeds-left bg-info"><i class="fa fa-user"></i></div>
-                                    <div class="feeds-body">
-                                        <h4 class="title text-info">New User <small class="float-right text-muted">9:15 AM</small></h4>
-                                        <small>I feel great! Thanks team</small>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="feeds-left bg-orange"><i class="fa fa-question-circle"></i></div>
-                                    <div class="feeds-body">
-                                        <h4 class="title text-warning">Server Warning <small class="float-right text-muted">9:17 AM</small></h4>
-                                        <small>Your connection is not private</small>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="feeds-left bg-green"><i class="fa fa-thumbs-o-up"></i></div>
-                                    <div class="feeds-body">
-                                        <h4 class="title text-success">2 New Feedback <small class="float-right text-muted">9:22 AM</small></h4>
-                                        <small>It will give a smart finishing to your site</small>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown language-menu">
-                        <a href="javascript:void(0);" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                            <i class="fa fa-language"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="<?php echo base_url();?>assets/images/flag/us.svg " class="w20 mr-2 rounded-circle"> US English</a>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="<?php echo base_url();?>assets/images/flag/gb.svg " class="w20 mr-2 rounded-circle"> UK English</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="<?php echo base_url();?>assets/images/flag/russia.svg " class="w20 mr-2 rounded-circle"> Russian</a>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="<?php echo base_url();?>assets/images/flag/arabia.svg " class="w20 mr-2 rounded-circle"> Arabic</a>
-                            <a class="dropdown-item pt-2 pb-2" href="#"><img src="<?php echo base_url();?>assets/images/flag/france.svg " class="w20 mr-2 rounded-circle"> French</a>
-                        </div>
-                    </li>
-                    <li><a href="javascript:void(0);" class="megamenu_toggle icon-menu" title="Mega Menu">Mega</a></li>
-                    
-                </ul>
-            </div>
-            
-            <div class="navbar-right">
-                <div id="navbar-menu">
-                    <ul class="nav navbar-nav">
-                        <li><a href="javascript:void(0);" class="search_toggle icon-menu" title="Search Result"><i class="icon-magnifier"></i></a></li>
-                        <li><a href="javascript:void(0);" class="right_toggle icon-menu" title="Right Menu"><i class="icon-bubbles"></i><span class="notification-dot bg-pink">2</span></a></li>
-                        <li><a href="page-login.html" class="icon-menu"><i class="icon-power"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
-    </nav>
+    <?php $this->load->view('sidemenu');?>
 
-    <div class="search_div">
-        <div class="card">
-            <div class="body">
-                <form id="navbar-search" class="navbar-form search-form">
-                    <div class="input-group mb-0">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="icon-magnifier"></i></span>
-                            <a href="javascript:void(0);" class="search_toggle btn btn-danger"><i class="icon-close"></i></a>
-                        </div>
-                    </div>
-                </form>
-            </div>            
-        </div>
-        <span>Search Result <small class="float-right text-muted">About 90 results (0.47 seconds)</small></span>
-        <div class="table-responsive">
-            <table class="table table-hover table-custom spacing5">
-                <tbody>
-                    <tr>
-                        <td class="w40">
-                            <span>01</span>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="avtar-pic w35 bg-red" data-toggle="tooltip" data-placement="top" title="" data-original-title="Avatar Name"><span>SS</span></div>
-                                <div class="ml-3">
-                                    <a href="page-invoices-detail.html" title="">South Shyanne</a>
-                                    <p class="mb-0">south.shyanne@example.com</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>02</span>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="<?php echo base_url();?>assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-                                <div class="ml-3">
-                                    <a href="javascript:void(0);" title="">Zoe Baker</a>
-                                    <p class="mb-0">zoe.baker@example.com</p>
-                                </div>
-                            </div>                                        
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>03</span>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                    <div class="avtar-pic w35 bg-indigo" data-toggle="tooltip" data-placement="top" title="" data-original-title="Avatar Name"><span>CB</span></div>
-                                <div class="ml-3">
-                                    <a href="javascript:void(0);" title="">Colin Brown</a>
-                                    <p class="mb-0">colinbrown@example.com</p>
-                                </div>
-                            </div>                                        
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>04</span>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="avtar-pic w35 bg-green" data-toggle="tooltip" data-placement="top" title="" data-original-title="Avatar Name"><span>KG</span></div>
-                                <div class="ml-3">
-                                    <a href="javascript:void(0);" title="">Kevin Gill</a>
-                                    <p class="mb-0">kevin.gill@example.com</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>05</span>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="<?php echo base_url();?>assets/images/xs/avatar5.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-                                <div class="ml-3">
-                                    <a href="javascript:void(0);" title="">Brandon Smith</a>
-                                    <p class="mb-0">Maria.gill@example.com</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>06</span>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="<?php echo base_url();?>assets/images/xs/avatar6.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-                                <div class="ml-3">
-                                    <a href="javascript:void(0);" title="">Kevin Baker</a>
-                                    <p class="mb-0">kevin.baker@example.com</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>07</span>
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="<?php echo base_url();?>assets/images/xs/avatar2.jpg" data-toggle="tooltip" data-placement="top" title="" alt="Avatar" class="w35 h35 rounded" data-original-title="Avatar Name">
-                                <div class="ml-3">
-                                    <a href="javascript:void(0);" title="">Zoe Baker</a>
-                                    <p class="mb-0">zoe.baker@example.com</p>
-                                </div>
-                            </div>                                        
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div id="megamenu" class="megamenu particles_js">
+    <!-- <div id="megamenu" class="megamenu particles_js">
         <a href="javascript:void(0);" class="megamenu_toggle btn btn-danger"><i class="icon-close"></i></a>
         <div class="container">
             <div class="row clearfix">
@@ -791,7 +518,7 @@
                 </ul>
             </nav>     
         </div>
-    </div>
+    </div> -->
 
     <div id="main-content">
         <div class="container-fluid">
@@ -806,10 +533,10 @@
                             </ol>
                         </nav>
                     </div>            
-                    <div class="col-md-6 col-sm-12 text-right hidden-xs">
+                    <!-- <div class="col-md-6 col-sm-12 text-right hidden-xs">
                         <a href="javascript:void(0);" class="btn btn-sm btn-primary" title="">Create Campaign</a>
                         <a href="https://themeforest.net/item/oculux-bootstrap-4x-admin-dashboard-clean-modern-ui-kit/23091507" class="btn btn-sm btn-success" title="Themeforest"><i class="icon-basket"></i> Buy Now</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="row clearfix">
@@ -1123,9 +850,6 @@
 </div>
 
 <!-- Javascript -->
-<script src="<?php echo base_url();?>assets/bundles/libscripts.bundle.js"></script>
-<script src="<?php echo base_url();?>assets/bundles/vendorscripts.bundle.js"></script>
-
-<script src="<?php echo base_url();?>assets/bundles/mainscripts.bundle.js"></script>
+<?php $this->load->view('footer');?>
 </body>
 </html>

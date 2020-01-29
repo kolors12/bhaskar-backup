@@ -2,18 +2,8 @@
 <html lang="en">
 
 <?php $this->load->view('head');?>
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/site.min.css">
 <style>
-  
-
-     
-.nav.nav-tabs .nav-item .nav-link {
-    
-    background-color: rgb(0, 188, 210);
-    transition: all 0.3s ease-in-out 0s;
-    border-radius: 50px;
-    padding: 0.5rem 1.5rem;
- }
+ 
 .pagination li a{
     position: relative;
     display: block;
@@ -157,8 +147,8 @@
                         <h1><?php  echo $this->lang->line('Teacher Registration'); ?></h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                            <!--li class="breadcrumb-item"><a href="#">School App</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><strong>Staff Application Form</strong></li-->
+                            <!-- <li class="breadcrumb-item"><a href="#">School App</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><strong>Staff Application Form</strong></li> -->
                             </ol>
                         </nav>
                     </div>            
@@ -177,7 +167,7 @@
                         </ul>
                         <div id="loading">
                         </div>
-                        <div class="tab-content mt-0">
+                        <div class="tab-content">
                             <div class="tab-pane show active" id="Users">
 							   
                                 <div class="search-fields" >
