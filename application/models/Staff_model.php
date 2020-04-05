@@ -57,7 +57,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public  function insert_role($data)
 		{
 			$this->db->insert('staff', $data);
+		    $user['emp_id'] = $this->db->insert_id();
+			$user['username'] = $data['username'];
+			$user['password	'] = $data['password'];
+			$user['role	'] = $data['role_in_school'];
+			$this->db->insert('login_table', $user);
 			return true;
+			
+			
 		}
 		public function edit_staff($id)
 		{
@@ -183,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
-				$output = '<td colspan="4" style="text-align:center;color:red;"><h4>No Admission Found</h4></td>';
+				$output = '<td colspan="8" style="text-align:center;color:green;"><h5>No Teacher Found</h5></td>';
 			}
 			return $output;
 		}

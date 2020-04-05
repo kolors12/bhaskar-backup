@@ -32,27 +32,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$gt = new GoogleTranslate();	
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$data['class'] = $this->Classes_assign_model->get_class();
+	    $data['subject'] = $this->Classes_assign_model->get_subject();
+		$data['class'] = $this->Classes_assign_model->gett_class();
 		$data['students'] = $this->Classes_assign_model->get_students();
         $this->load->view('classes_assign',$data);
 		
 	}
+	function resource_details(){
+		$subject_id = $this->input->post('id',TRUE);
+		$class_id = $this->input->post('class_id',TRUE);
+		$data = $this->Classes_assign_model->resource_details($subject_id,$class_id)->result();
+		echo json_encode($data);
+    }
 
 	public function insert_assign_studenst()
 	 {
 		      $gt = new GoogleTranslate();
-			//   $rev = $this->input->post('student_id');
-			//   $data=array(
-			//   'student_id'=>implode(",",$rev),
-			//   );
+			  $sess_data = $this->session->all_userdata();
 			  $data['class_id'] = $this->input->post('class_id');
+			  $data['subject_id'] = $this->input->post('subject_id');
+			  $data['resource'] = $this->input->post('resource');
 			  $data['student_id'] = $this->input->post('student_id');
+			  $data['from_date'] = $this->input->post('from_date');
+			  $data['to_date'] = $this->input->post('to_date');
+			  $data['description'] = $this->input->post('description');
+			  $data['tech_id'] = $sess_data['emp_id'];
+			  
+			  $data['from_date_ar']=$gt->translate("en","ar",$this->input->post('from_date'));
+			  $data['to_date_ar']=$gt->translate("en","ar",$this->input->post('to_date'));
+			  $data['description_ar']=$gt->translate("en","ar",$this->input->post('description'));
+				
+			  $result = $this->Classes_assign_model->insert_assign_studenst($data);
 			
-			 $result = $this->Classes_assign_model->insert_assign_studenst($data);
 			 if($result == '1')
 			{
 			   $this->load->helper('url');
-			   $this->session->set_flashdata('message','Student Successfully Added to Class');
+			   $this->session->set_flashdata('message','Assign Successfully');
 			   redirect('classes_assign/class_assign_view');
 			} else if ($result == '2') {
 			   $this->load->helper('url');
@@ -76,10 +91,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		sleep(1);
 		$class_id = $this->input->post('class_id');
+		$subject_id = $this->input->post('subject_id');
 		$this->load->library('pagination');
 		$config = array();
 		$config['base_url'] = '#';
-		$config['total_rows'] = $this->Classes_assign_model->count_all($class_id);
+		$config['total_rows'] = $this->Classes_assign_model->count_all($class_id,$subject_id);
 		$config['per_page'] = 8;
 		$config['uri_segment'] = 3;
 		$config['use_page_numbers'] = TRUE;
@@ -105,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$start = ($page - 1) * $config['per_page'];
 		$output = array(
 		'pagination_link'  => $this->pagination->create_links(),
-		'admissions_list'   => $this->Classes_assign_model->fetch_data($config["per_page"], $start, $class_id)
+		'admissions_list'   => $this->Classes_assign_model->fetch_data($config["per_page"], $start, $class_id,$subject_id)
 		);
 		echo json_encode($output);
 	}

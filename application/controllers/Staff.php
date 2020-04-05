@@ -45,12 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$gt = new GoogleTranslate();
 			
 			
-			if(!empty($this->input->post('subjects_to'))){
-			$sub = $this->input->post('subjects_to');
-			$data=array(
-			'subjects_to'=>implode(",",$sub),
-			);
-			}
+			
 
 			if(!empty($this->input->post('classes_to_teach'))){
 			$cls = $this->input->post('classes_to_teach');
@@ -58,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			'classes_to_teach'=>implode(",",$cls),
 			);
 			}
+			$data['subjects'] = $this->input->post('subjects_to');
 			$data['f_name'] = $this->input->post('f_name');
 			$data['l_name'] = $this->input->post('l_name');
 			$data['emp_code'] = $this->input->post('emp_code');

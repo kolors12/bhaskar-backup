@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
-				$output = '<td colspan="4" style="text-align:center;color:red;"><h5>No Data Found</h5></td>';
+				$output = '<td colspan="7" style="text-align:center;color:red;"><h5>No Data Found</h5></td>';
 			}
 			return $output;
 		}

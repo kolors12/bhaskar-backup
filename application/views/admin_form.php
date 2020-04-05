@@ -319,6 +319,16 @@
                                         </div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
                                             <div class="form-group">
+                                                <input type="text" name="user_name" class="form-control" placeholder="<?php  echo $this->lang->line('user_name');?>" required>
+                                            </div>
+                                        </div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                                <input type="password" name="password" class="form-control" placeholder="<?php  echo $this->lang->line('Password');?>" required>
+                                            </div>
+                                        </div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="form-group">
                                                 <input type="text" name="last_school_name" class="form-control" placeholder="<?php  echo $this->lang->line('The_Last_School_(previous school)');?>" required>
                                             </div>
                                         </div>

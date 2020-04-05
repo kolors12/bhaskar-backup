@@ -37,20 +37,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 			return false;
 			}
-
 		}
 		public  function insert_admission($data)
 		{
 			$this->db->insert('admission_users', $data);
+			$students['emp_id'] = $this->db->insert_id();
+			$students['username'] = $data['username'];
+			$students['password	'] = $data['password'];
+			$var ="Student";
+			$students['role	'] = $var;
+			$this->db->insert('login_table', $students);
 			return true;
 		}
 
-		// public function view_details($id)
-		// {
-		//     $query=$this->db->where(array('adm_id' =>$id))->get('admission_users');
-		// 	$result = $query->result_array();
-		// 	return $result;
-		// }
+		
 
 		public function view_details($id)
 		{
@@ -149,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 						else
 						{ 
-							$output .= '<span class="label btn-xs badge badge-success">Active-'.$row['status'].'</span>';
+							$output .= '<span class="label btn-xs badge badge-success">Active'.$row['status'].'</span>';
 						}
 						$output .= '
 						</td>
@@ -170,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else
 			{
-				$output = '<td colspan="4" style="text-align:center;color:red;"><h4>No Admission Found</h4></td>';
+				$output = '<td colspan="7" style="text-align:center;color:red;"><h5>No Admission Found</h5></td>';
 			}
 			return $output;
 		}

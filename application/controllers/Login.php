@@ -42,7 +42,6 @@ class Login extends CI_Controller {
 			$user_password= $this->input->post('user_password');
 			
 			$result = $this->Login_model->login($user_email,$user_password);
-			
 			if($result =='true')
 			{
 				$sess_data = $this->session->all_userdata();
@@ -62,10 +61,10 @@ class Login extends CI_Controller {
 		  $user_session_items = array(
 				
 			'user_id' => $row->user_id,
-			'first_name' => '',
-			'last_name' => '',
-			'user_email' => '',
-			'mobile_number' => '',
+			'emp_id' => '',
+			'username' => '',
+			'password' => '',
+			'role' => '',
 			'user_password' => '',
 			'role_type' => '',
 			'user_status' => '',
@@ -82,7 +81,10 @@ class Login extends CI_Controller {
 	{
 		$sess_data = $this->session->all_userdata();
 		if($sess_data['user_id'] == '' ){redirect('login/login');}
-		$this->load->view('profile_page');
+		if($sess_data['role'] == 'Admin'){
+	    $data['user_details'] = $this->Login_model->get_admin($sess_data['emp_id']);
+		}
+		$this->load->view('profile_page',$data);
 	}
 	public function update_profile()
     {

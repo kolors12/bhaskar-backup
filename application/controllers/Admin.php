@@ -61,8 +61,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['residence_no'] = $this->input->post('residence_no');
 			$data['father_work'] = $this->input->post('father_work');
 			$data['emergency_no'] = $this->input->post('emergency_no');
+			$data['username'] = $this->input->post('user_name');
+			$data['password'] = $this->input->post('password');
 			$data['last_school_name'] = $this->input->post('last_school_name');
 			$data['mode_of_transportation'] = $this->input->post('mode_of_transportation');
+			
 			
 			
 			/* birth_certificate Code*/

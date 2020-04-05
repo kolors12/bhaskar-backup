@@ -299,7 +299,7 @@
                                         </div>
 										<div class="col-lg-6 col-md-6 col-sm-12">
                                            <div class="form-group">
-                                            <select class="selectpicker form-control show-tick" name="subjects_to[]" multiple="true" required>
+                                            <select class="selectpicker form-control show-tick" name="subjects_to"  required>
                                             <option value="">Select <?php  echo $this->lang->line('Subjects');?></option>
                                             <?php foreach ($get_subjects as $row) {?>
                                             <option value="<?php echo $row['subject_name'];?>"><?php echo $row['subject_name'];?></option>
